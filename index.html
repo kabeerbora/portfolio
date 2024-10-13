@@ -119,7 +119,23 @@
 									<div class="slide active" style="background-image: url('images/Drain_Gain_WMR_abstract.pdf')">
 										<div class="content">
 											<h3><a href="images/Drain_Gain_WMR_abstract.pdf" target="_blank" style="text-decoration: underline; color: blue;">The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit</a></h3>
-											<p>India's colonial history has received substantial scholarly attention... (rest of the abstract)</p>
+											<p>India’s colonial history has received substantial scholarly attention, and the drain of wealth
+												has particularly attracted considerable focus. However, the emphasis has often remained on the
+												drain of wealth as a cause of India’s underdevelopment. This study shifts the lens to examine
+												how this drain from India to Britain played a crucial role in Britain’s economic development.
+												By highlighting this aspect of the global drain of wealth, I demonstrate empirically how this
+												transfer was pivotal to the success of the British economy. While the drain of wealth from
+												India is a well-documented phenomenon, this article not only clarifies its complexities but also
+												connects it to Marxian Political Economy. To the best of my knowledge, this is the first study
+												to investigate both how capital was accumulated through colonial exploitation and how this
+												accumulation enhanced the profitability of the British economy—a key indicator of economic
+												viability. Through a detailed analysis of colonial accounting practices, this study enhances our
+												understanding of the impact of the wealth drain on Britain’s economic situation. By addressing
+												spurious correlations, as suggested by Hamilton (2020), I find that a doubling of my measure
+												of colonial drain corresponds to approximately a 10% increase in Britain’s rate of profit. This
+												finding is further supported by an alternative measure of colonial drain, known as Expenditure
+												in England. The analysis covers the period from the enactment of the Third Charter Act in
+												1833 to the onset of the First World War</p>
 										</div>
 									</div>
 									<!-- Slide 2 -->
@@ -163,26 +179,26 @@
 	
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script>
-			var slides = $(".slide");
-			var currentSlide = 0;
+			var abstracts = $(".slide");
+			var currentAbstract = 0;
 	
-			function updateSlide() {
-				slides.removeClass("active"); // Remove active class from all slides
-				$(slides[currentSlide]).addClass("active"); // Add active class to the current slide
+			function updateAbstract() {
+				abstracts.hide(); // Hide all abstracts
+				$(abstracts[currentAbstract]).show(); // Show the current abstract
 			}
 	
 			$("#next-button").click(function() {
-				currentSlide = (currentSlide + 1) % slides.length; // Go to next slide
-				updateSlide();
+				currentAbstract = (currentAbstract + 1) % abstracts.length; // Go to next abstract
+				updateAbstract();
 			});
 	
 			$("#prev-button").click(function() {
-				currentSlide = (currentSlide - 1 + slides.length) % slides.length; // Go to previous slide
-				updateSlide();
+				currentAbstract = (currentAbstract - 1 + abstracts.length) % abstracts.length; // Go to previous abstract
+				updateAbstract();
 			});
 	
-			updateSlide(); // Initial call to set the first slide
-		</script>
+			updateAbstract(); // Initial call to set the first abstract
+		</script>		
 		<!-- Contact -->
 			<article id="contact" class="wrapper style4">
 				<div class="container medium">
