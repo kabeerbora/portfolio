@@ -132,8 +132,16 @@
 								Email: <a href="mailto:kabeerbora@umkc.edu">kabeerbora@umkc.edu</a>
 							</p>
 							<ul class="social">
-								<li><a href="https://twitter.com/kabeer_bora?lang=en" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="https://www.linkedin.com/in/kabeer-bora-6016a5b9/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li>
+									<a href="https://twitter.com/kabeer_bora?lang=en" class="icon">
+										<img src="src\X_logo_2023_original.svg" alt="X" width="32" height="32">
+									</a>
+								</li>
+								<li>
+									<a href="https://www.linkedin.com/in/kabeer-bora-6016a5b9/" class="icon">
+										<i class="fab fa-linkedin-in" aria-hidden="true"></i>
+									</a>
+								</li>
 							</ul>
 							<hr />
 						</div>
@@ -204,11 +212,12 @@
 
 						function renderSlide() {
 							const slide = slides[currentIndex];
+							const buttonText = containerId === 'teaching-carousel' ? 'View Syllabus' : 'View Abstract';
 							container.innerHTML = `
 								<div class="carousel-item active">
 									<h3>${slide.title}</h3>
 									<p>${slide.content}</p>
-									${slide.link ? `<a href="${slide.link}" target="_blank" class="button">View Abstract</a>` : ''}
+									${slide.link ? `<a href="${slide.link}" target="_blank" class="button">${buttonText}</a>` : ''}
 								</div>
 								<button class="carousel-control prev">&lt;</button>
 								<button class="carousel-control next">&gt;</button>
