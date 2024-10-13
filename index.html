@@ -21,21 +21,20 @@
         .carousel {
             position: relative;
             overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
         }
-
         .carousel-inner {
             transition: transform 0.3s ease;
         }
-
         .carousel-item {
             display: none;
             padding: 20px;
+            text-align: center;
         }
-
         .carousel-item.active {
             display: block;
         }
-
         .carousel-control {
             position: absolute;
             top: 50%;
@@ -46,11 +45,9 @@
             padding: 10px 15px;
             cursor: pointer;
         }
-
         .carousel-control.prev {
             left: 10px;
         }
-
         .carousel-control.next {
             right: 10px;
         }
@@ -167,7 +164,7 @@
 						{
 							title: "Economic Theories",
 							content: "This abstract discusses various economic theories and their implications in contemporary society...",
-							link: "images/abstract3.pdf"
+							link: "images/CV.pdf"
 						},
 						{
 							title: "The Role of Fiscal Policy",
@@ -203,49 +200,32 @@
 
 					function createCarousel(containerId, slides) {
 						const container = document.getElementById(containerId);
-						const carouselInner = document.createElement('div');
-						carouselInner.className = 'carousel-inner';
-
-						slides.forEach((slide, index) => {
-							const item = document.createElement('div');
-							item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
-							item.innerHTML = `
-								<h3>${slide.title}</h3>
-								<p>${slide.content}</p>
-								${slide.link ? `<a href="${slide.link}" target="_blank" class="button">View Abstract</a>` : ''}
-							`;
-							carouselInner.appendChild(item);
-						});
-
-						container.appendChild(carouselInner);
-
-						const prevBtn = document.createElement('button');
-						prevBtn.className = 'carousel-control prev';
-						prevBtn.innerHTML = '&lt;';
-						container.appendChild(prevBtn);
-
-						const nextBtn = document.createElement('button');
-						nextBtn.className = 'carousel-control next';
-						nextBtn.innerHTML = '&gt;';
-						container.appendChild(nextBtn);
-
 						let currentIndex = 0;
 
-						function showItem(index) {
-							const items = carouselInner.querySelectorAll('.carousel-item');
-							items.forEach(item => item.classList.remove('active'));
-							items[index].classList.add('active');
+						function renderSlide() {
+							const slide = slides[currentIndex];
+							container.innerHTML = `
+								<div class="carousel-item active">
+									<h3>${slide.title}</h3>
+									<p>${slide.content}</p>
+									${slide.link ? `<a href="${slide.link}" target="_blank" class="button">View Abstract</a>` : ''}
+								</div>
+								<button class="carousel-control prev">&lt;</button>
+								<button class="carousel-control next">&gt;</button>
+							`;
+
+							container.querySelector('.prev').addEventListener('click', () => {
+								currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+								renderSlide();
+							});
+
+							container.querySelector('.next').addEventListener('click', () => {
+								currentIndex = (currentIndex + 1) % slides.length;
+								renderSlide();
+							});
 						}
 
-						prevBtn.addEventListener('click', () => {
-							currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-							showItem(currentIndex);
-						});
-
-						nextBtn.addEventListener('click', () => {
-							currentIndex = (currentIndex + 1) % slides.length;
-							showItem(currentIndex);
-						});
+						renderSlide();
 					}
 
 					createCarousel('research-carousel', researchSlides);
