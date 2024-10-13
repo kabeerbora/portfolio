@@ -1,0 +1,36 @@
+.carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    transition: transform 0.3s ease;
+}
+
+.carousel-item {
+    display: none;
+    padding: 20px;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}

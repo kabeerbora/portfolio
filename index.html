@@ -18,6 +18,42 @@
             background-size: cover;
             background-position: center; /* Optional: centers the background image */
         }
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item {
+            display: none;
+            padding: 20px;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .carousel-control.prev {
+            left: 10px;
+        }
+
+        .carousel-control.next {
+            right: 10px;
+        }
     </style>
 	
 </head>
@@ -61,144 +97,67 @@
 				<header>
 					<h2>Teaching Portfolio</h2>
 				</header>
-				<div class="row">
-					<div class="col-12">
-						<article class="box style2">
-							<div id="pdf-container" style="width: 100%; height: 600px;">
-								<iframe id="pdf-iframe" src="images/Syllabus_rad_pol_econ.pdf" style="width: 100%; height: 100%; border: none;"></iframe>
-							</div>
-							
-							<button class="button large scrolly" id="prev-button">Previous</button>
-							<button class="button large scrolly" id="next-button">Next</button>
-						</article>
+				<div class="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<h3>Radical Political Economy</h3>
+							<p>Syllabus for an undergraduate course on radical political economy...</p>
+							<a href="images/Syllabus_rad_pol_econ.pdf" target="_blank" class="button">View Syllabus</a>
+						</div>
+						<div class="carousel-item">
+							<h3>Macroeconomics</h3>
+							<p>Overview of macroeconomic principles and policies...</p>
+						</div>
+						<div class="carousel-item">
+							<h3>Econometrics</h3>
+							<p>Introduction to statistical methods in economics...</p>
+						</div>
+						<div class="carousel-item">
+							<h3>Economic History</h3>
+							<p>Exploration of economic developments through history...</p>
+						</div>
 					</div>
+					<button class="carousel-control prev">&lt;</button>
+					<button class="carousel-control next">&gt;</button>
 				</div>
-				<div style="height: 50px;"></div>
 			</div>
 		</article>
 		
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script>
-			var pdfs = [
-				"images/Syllabus_rad_pol_econ.pdf",
-				"images/CV_1.pdf"
-			];
-			var currentPdf = 0;
-		
-			function updatePdf() {
-				$("#pdf-iframe").attr("src", pdfs[currentPdf]);
-			}
-		
-			$("#next-button").click(function() {
-				currentPdf = (currentPdf + 1) % pdfs.length; // Go to next PDF
-				updatePdf();
-			});
-		
-			$("#prev-button").click(function() {
-				currentPdf = (currentPdf - 1 + pdfs.length) % pdfs.length; // Go to previous PDF
-				updatePdf();
-			});
-		
-			updatePdf(); // Initial call to set the first PDF
-		</script>
-		
-
-				
 		<!-- Portfolio -->
 		<article id="portfolio" class="wrapper style3">
 			<div class="container">
 				<header>
 					<h2>Research Portfolio</h2>
 				</header>
-				<div class="row">
-					<div class="col-12">
-						<article class="box style2">
-							<div id="pdf-container">
-								<div class="slider">
-									<!-- Slide 1 -->
-									<div class="slide active" style="background-image: url('images/Drain_Gain_WMR_abstract.pdf')">
-										<div class="content">
-											<h3><a href="images/Drain_Gain_WMR_abstract.pdf" target="_blank" style="text-decoration: underline; color: blue;">The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit</a></h3>
-											<p>India’s colonial history has received substantial scholarly attention, and the drain of wealth
-												has particularly attracted considerable focus. However, the emphasis has often remained on the
-												drain of wealth as a cause of India’s underdevelopment. This study shifts the lens to examine
-												how this drain from India to Britain played a crucial role in Britain’s economic development.
-												By highlighting this aspect of the global drain of wealth, I demonstrate empirically how this
-												transfer was pivotal to the success of the British economy. While the drain of wealth from
-												India is a well-documented phenomenon, this article not only clarifies its complexities but also
-												connects it to Marxian Political Economy. To the best of my knowledge, this is the first study
-												to investigate both how capital was accumulated through colonial exploitation and how this
-												accumulation enhanced the profitability of the British economy—a key indicator of economic
-												viability. Through a detailed analysis of colonial accounting practices, this study enhances our
-												understanding of the impact of the wealth drain on Britain’s economic situation. By addressing
-												spurious correlations, as suggested by Hamilton (2020), I find that a doubling of my measure
-												of colonial drain corresponds to approximately a 10% increase in Britain’s rate of profit. This
-												finding is further supported by an alternative measure of colonial drain, known as Expenditure
-												in England. The analysis covers the period from the enactment of the Third Charter Act in
-												1833 to the onset of the First World War</p>
-										</div>
-									</div>
-									<!-- Slide 2 -->
-									<div class="slide" style="background-image: url('images/Syllabus_rad_pol_econ.pdf')">
-										<div class="content">
-											<h3><a href="images/Syllabus_rad_pol_econ.pdf" target="_blank">Radical Political Economy</a></h3>
-											<p>Syllabus for an undergraduate course on radical political economy... (rest of the syllabus description)</p>
-										</div>
-									</div>
-									<!-- Slide 3 -->
-									<div class="slide" style="background-image: url('images/abstract3.pdf')">
-										<div class="content">
-											<h3><a href="images/abstract3.pdf" target="_blank">Abstract on Economic Theories</a></h3>
-											<p>This abstract discusses various economic theories and their implications in contemporary society...</p>
-										</div>
-									</div>
-									<!-- Slide 4 -->
-									<div class="slide" style="background-image: url('images/abstract4.pdf')">
-										<div class="content">
-											<h3><a href="images/abstract4.pdf" target="_blank">The Role of Fiscal Policy</a></h3>
-											<p>This research explores how fiscal policy impacts economic stability and growth...</p>
-										</div>
-									</div>
-									<!-- Slide 5 -->
-									<div class="slide" style="background-image: url('images/abstract5.pdf')">
-										<div class="content">
-											<h3><a href="images/abstract5.pdf" target="_blank">Global Trade Dynamics</a></h3>
-											<p>An analysis of global trade patterns and their effects on local economies...</p>
-										</div>
-									</div>
-								</div>
-							</div>
-							<button class="button large scrolly" id="prev-button">Previous</button>
-							<button class="button large scrolly" id="next-button">Next</button>
-						</article>
+				<div class="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<h3>The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit</h3>
+							<p>India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development.</p>
+							<a href="images/Drain_Gain_WMR_abstract.pdf" target="_blank" class="button">View Abstract</a>
+						</div>
+						<div class="carousel-item">
+							<h3>Economic Theories</h3>
+							<p>This abstract discusses various economic theories and their implications in contemporary society...</p>
+							<a href="images/abstract3.pdf" target="_blank" class="button">View Abstract</a>
+						</div>
+						<div class="carousel-item">
+							<h3>The Role of Fiscal Policy</h3>
+							<p>This research explores how fiscal policy impacts economic stability and growth...</p>
+							<a href="images/abstract4.pdf" target="_blank" class="button">View Abstract</a>
+						</div>
+						<div class="carousel-item">
+							<h3>Global Trade Dynamics</h3>
+							<p>An analysis of global trade patterns and their effects on local economies...</p>
+							<a href="images/abstract5.pdf" target="_blank" class="button">View Abstract</a>
+						</div>
 					</div>
+					<button class="carousel-control prev">&lt;</button>
+					<button class="carousel-control next">&gt;</button>
 				</div>
-				<div style="height: 50px;"></div>
 			</div>
 		</article>
 	
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-		<script>
-			var abstracts = $(".slide");
-			var currentAbstract = 0;
-	
-			function updateAbstract() {
-				abstracts.hide(); // Hide all abstracts
-				$(abstracts[currentAbstract]).show(); // Show the current abstract
-			}
-	
-			$("#next-button").click(function() {
-				currentAbstract = (currentAbstract + 1) % abstracts.length; // Go to next abstract
-				updateAbstract();
-			});
-	
-			$("#prev-button").click(function() {
-				currentAbstract = (currentAbstract - 1 + abstracts.length) % abstracts.length; // Go to previous abstract
-				updateAbstract();
-			});
-	
-			updateAbstract(); // Initial call to set the first abstract
-		</script>		
 		<!-- Contact -->
 			<article id="contact" class="wrapper style4">
 				<div class="container medium">
@@ -240,31 +199,32 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-            <script>
-              let images = [
-                { src: 'images/pic01.jpg', title: 'Magna feugiat', description: 'Ornare nulla proin odio consequat.' },
-                { src: 'images/pic02.jpg', title: 'Veroeros primis', description: 'Ornare nulla proin odio consequat.' },
-                { src: 'images/pic03.jpg', title: 'Lorem ipsum', description: 'Ornare nulla proin odio consequat.' },
-                // Add more images here...
-              ];
-              
-              let currentImageIndex = 0;
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					const carousels = document.querySelectorAll('.carousel');
+					
+					carousels.forEach(carousel => {
+						const items = carousel.querySelectorAll('.carousel-item');
+						const prevBtn = carousel.querySelector('.prev');
+						const nextBtn = carousel.querySelector('.next');
+						let currentIndex = 0;
 
-              document.getElementById('prev-button').addEventListener('click', function() {
-                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-                updateImage();
-              });
+						function showItem(index) {
+							items.forEach(item => item.classList.remove('active'));
+							items[index].classList.add('active');
+						}
 
-              document.getElementById('next-button').addEventListener('click', function() {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                updateImage();
-              });
+						prevBtn.addEventListener('click', () => {
+							currentIndex = (currentIndex - 1 + items.length) % items.length;
+							showItem(currentIndex);
+						});
 
-              function updateImage() {
-                document.getElementById('portfolio-image').src = images[currentImageIndex].src;
-                document.getElementById('portfolio-title').textContent = images[currentImageIndex].title;
-                document.getElementById('portfolio-description').textContent = images[currentImageIndex].description;
-              } 
-            </script>
+						nextBtn.addEventListener('click', () => {
+							currentIndex = (currentIndex + 1) % items.length;
+							showItem(currentIndex);
+						});
+					});
+				});
+			</script>
 	</body>
 </html>
