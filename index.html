@@ -97,28 +97,8 @@
 				<header>
 					<h2>Teaching Portfolio</h2>
 				</header>
-				<div class="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<h3>Radical Political Economy</h3>
-							<p>Syllabus for an undergraduate course on radical political economy...</p>
-							<a href="images/Syllabus_rad_pol_econ.pdf" target="_blank" class="button">View Syllabus</a>
-						</div>
-						<div class="carousel-item">
-							<h3>Macroeconomics</h3>
-							<p>Overview of macroeconomic principles and policies...</p>
-						</div>
-						<div class="carousel-item">
-							<h3>Econometrics</h3>
-							<p>Introduction to statistical methods in economics...</p>
-						</div>
-						<div class="carousel-item">
-							<h3>Economic History</h3>
-							<p>Exploration of economic developments through history...</p>
-						</div>
-					</div>
-					<button class="carousel-control prev">&lt;</button>
-					<button class="carousel-control next">&gt;</button>
+				<div class="carousel" id="teaching-carousel">
+					<!-- Carousel items will be dynamically inserted here -->
 				</div>
 			</div>
 		</article>
@@ -129,31 +109,8 @@
 				<header>
 					<h2>Research Portfolio</h2>
 				</header>
-				<div class="carousel">
-					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<h3>The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit</h3>
-							<p>India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development.</p>
-							<a href="images/Drain_Gain_WMR_abstract.pdf" target="_blank" class="button">View Abstract</a>
-						</div>
-						<div class="carousel-item">
-							<h3>Economic Theories</h3>
-							<p>This abstract discusses various economic theories and their implications in contemporary society...</p>
-							<a href="images/abstract3.pdf" target="_blank" class="button">View Abstract</a>
-						</div>
-						<div class="carousel-item">
-							<h3>The Role of Fiscal Policy</h3>
-							<p>This research explores how fiscal policy impacts economic stability and growth...</p>
-							<a href="images/abstract4.pdf" target="_blank" class="button">View Abstract</a>
-						</div>
-						<div class="carousel-item">
-							<h3>Global Trade Dynamics</h3>
-							<p>An analysis of global trade patterns and their effects on local economies...</p>
-							<a href="images/abstract5.pdf" target="_blank" class="button">View Abstract</a>
-						</div>
-					</div>
-					<button class="carousel-control prev">&lt;</button>
-					<button class="carousel-control next">&gt;</button>
+				<div class="carousel" id="research-carousel">
+					<!-- Carousel items will be dynamically inserted here -->
 				</div>
 			</div>
 		</article>
@@ -201,29 +158,98 @@
 			<script src="assets/js/main.js"></script>
 			<script>
 				document.addEventListener('DOMContentLoaded', function() {
-					const carousels = document.querySelectorAll('.carousel');
-					
-					carousels.forEach(carousel => {
-						const items = carousel.querySelectorAll('.carousel-item');
-						const prevBtn = carousel.querySelector('.prev');
-						const nextBtn = carousel.querySelector('.next');
+					const researchSlides = [
+						{
+							title: "The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit",
+							content: "India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development.",
+							link: "images/Drain_Gain_WMR_abstract.pdf"
+						},
+						{
+							title: "Economic Theories",
+							content: "This abstract discusses various economic theories and their implications in contemporary society...",
+							link: "images/abstract3.pdf"
+						},
+						{
+							title: "The Role of Fiscal Policy",
+							content: "This research explores how fiscal policy impacts economic stability and growth...",
+							link: "images/abstract4.pdf"
+						},
+						{
+							title: "Global Trade Dynamics",
+							content: "An analysis of global trade patterns and their effects on local economies...",
+							link: "images/abstract5.pdf"
+						}
+					];
+
+					const teachingSlides = [
+						{
+							title: "Radical Political Economy",
+							content: "Syllabus for an undergraduate course on radical political economy...",
+							link: "images/Syllabus_rad_pol_econ.pdf"
+						},
+						{
+							title: "Macroeconomics",
+							content: "Overview of macroeconomic principles and policies...",
+						},
+						{
+							title: "Econometrics",
+							content: "Introduction to statistical methods in economics...",
+						},
+						{
+							title: "Economic History",
+							content: "Exploration of economic developments through history...",
+						}
+					];
+
+					function createCarousel(containerId, slides) {
+						const container = document.getElementById(containerId);
+						const carouselInner = document.createElement('div');
+						carouselInner.className = 'carousel-inner';
+
+						slides.forEach((slide, index) => {
+							const item = document.createElement('div');
+							item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+							item.innerHTML = `
+								<h3>${slide.title}</h3>
+								<p>${slide.content}</p>
+								${slide.link ? `<a href="${slide.link}" target="_blank" class="button">View Abstract</a>` : ''}
+							`;
+							carouselInner.appendChild(item);
+						});
+
+						container.appendChild(carouselInner);
+
+						const prevBtn = document.createElement('button');
+						prevBtn.className = 'carousel-control prev';
+						prevBtn.innerHTML = '&lt;';
+						container.appendChild(prevBtn);
+
+						const nextBtn = document.createElement('button');
+						nextBtn.className = 'carousel-control next';
+						nextBtn.innerHTML = '&gt;';
+						container.appendChild(nextBtn);
+
 						let currentIndex = 0;
 
 						function showItem(index) {
+							const items = carouselInner.querySelectorAll('.carousel-item');
 							items.forEach(item => item.classList.remove('active'));
 							items[index].classList.add('active');
 						}
 
 						prevBtn.addEventListener('click', () => {
-							currentIndex = (currentIndex - 1 + items.length) % items.length;
+							currentIndex = (currentIndex - 1 + slides.length) % slides.length;
 							showItem(currentIndex);
 						});
 
 						nextBtn.addEventListener('click', () => {
-							currentIndex = (currentIndex + 1) % items.length;
+							currentIndex = (currentIndex + 1) % slides.length;
 							showItem(currentIndex);
 						});
-					});
+					}
+
+					createCarousel('research-carousel', researchSlides);
+					createCarousel('teaching-carousel', teachingSlides);
 				});
 			</script>
 	</body>
