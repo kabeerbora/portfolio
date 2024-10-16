@@ -13,7 +13,8 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
             transition: box-shadow 0.3s ease;
         }
         .sticky-header.scrolled {
@@ -47,7 +48,7 @@
                     <p class="mb-4">I am an Assistant Professor in Economics at the University of Missouri-Kansas City. I specialize in using empirical tools to understand classical political economy and teach Macroeconomics, Econometrics, Economic History, and Radical Political Economy.</p>
                     <div class="space-x-4">
                         <a href="images/CV.pdf" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">CV</a>
-                        <a href="mailto:borak@umkc.edu" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Email Me</a>
+                        <a href="mailto:kabeerbora@umkc.edu" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Email Me</a>
                         <a href="https://shss.umkc.edu/profiles/economics/bora-kabeer.html" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Department Webpage</a>
                     </div>
                 </div>
@@ -111,41 +112,14 @@
                 content: "India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development.",
                 link: "images/Drain_Gain_WMR_abstract.pdf"
             },
-            // {
-            //     title: "Economic Theories",
-            //     content: "This abstract discusses various economic theories and their implications in contemporary society...",
-            //     link: "images/CV.pdf"
-            // },
-            // {
-            //     title: "The Role of Fiscal Policy",
-            //     content: "This research explores how fiscal policy impacts economic stability and growth...",
-            //     link: "images/abstract4.pdf"
-            // },
-            // {
-            //     title: "Global Trade Dynamics",
-            //     content: "An analysis of global trade patterns and their effects on local economies...",
-            //     link: "images/abstract5.pdf"
-            // }
         ];
 
         const teachingSlides = [
             {
                 title: "Radical Political Economy",
-                content: "Throughout this course, we will explore fundamental concepts and engage in discussions within the realms of philosophy, sociology, political science, and economics as they relate to Karl Marx’s writings. The primary focus, however,will be on critically analyzing Marxist and classical economics. When needed, we will offer historical context and dive into the history of economic thought to enhance the understanding of Marx’s works. Towards the end, we can also see the application of Marxian Economics to the world of international trade.",
+                content: "Throughout this course, we will explore fundamental concepts and engage in discussions within the realms of philosophy, sociology, political science, and economics as they relate to Karl Marx's writings. The primary focus, however, will be on critically analyzing Marxist and classical economics. When needed, we will offer historical context and dive into the history of economic thought to enhance the understanding of Marx's works. Towards the end, we can also see the application of Marxian Economics to the world of international trade.",
                 link: "images/Syllabus_rad_pol_econ.pdf"
             },
-            // {
-            //     title: "Macroeconomics",
-            //     content: "Overview of macroeconomic principles and policies...",
-            // },
-            // {
-            //     title: "Econometrics",
-            //     content: "Introduction to statistical methods in economics...",
-            // },
-            // {
-            //     title: "Economic History",
-            //     content: "Exploration of economic developments through history...",
-            // }
         ];
 
         function createCarousel(containerId, slides, buttonText) {
@@ -157,17 +131,21 @@
                 container.innerHTML = `
                     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
                         <div class="p-6 carousel-content">
-                            <h3 class="text-xl font-semibold mb-2">${slide.title}</h3>
+                            <div class="flex items-center justify-between mb-4">
+                                <button class="text-gray-600 hover:text-gray-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                    </svg>
+                                </button>
+                                <h3 class="text-xl font-semibold text-center flex-grow px-4">${slide.title}</h3>
+                                <button class="text-gray-600 hover:text-gray-800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
                             <p class="text-gray-600 mb-4">${slide.content}</p>
                             ${slide.link ? `<a href="${slide.link}" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">${buttonText}</a>` : ''}
-                        </div>
-                        <div class="flex justify-between p-4">
-                            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-l">
-                                Previous
-                            </button>
-                            <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-r">
-                                Next
-                            </button>
                         </div>
                     </div>
                 `;
