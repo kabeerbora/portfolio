@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .carousel-content {
-            min-height: 300px; /* Adjust this value as needed */
+            min-height: 300px;
         }
         .sticky-header {
             position: sticky;
@@ -15,193 +15,214 @@
             z-index: 1000;
             background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(5px);
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, background-color 0.3s ease;
         }
         .sticky-header.scrolled {
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
     </style>
 </head>
-<body class="min-h-screen bg-gray-100">
-    <nav class="sticky-header">
-        <div class="container mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between">
-            <div class="mb-4 sm:mb-0">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/university-of-missouri-kansas-city-umkc5116-FyVYjPT4UgUYTplCaJD9YZCS6HTwCV.jpg" alt="UMKC Logo" class="h-8 sm:h-12 w-auto">
-            </div>
-            <ul class="flex flex-wrap justify-center space-x-2 sm:space-x-4">
-                <li><a href="#top" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Main</a></li>
-                <li><a href="#work" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Teaching</a></li>
-                <li><a href="#portfolio" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Research</a></li>
-                <li><a href="#contact" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Contact</a></li>
-            </ul>
+<body class="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+
+<nav class="sticky-header bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+    <div class="container mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between">
+        <div class="mb-4 sm:mb-0 flex items-center">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/university-of-missouri-kansas-city-umkc5116-FyVYjPT4UgUYTplCaJD9YZCS6HTwCV.jpg" alt="UMKC Logo" class="h-8 sm:h-12 w-auto">
+            <button id="dark-mode-toggle" class="ml-4 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">🌙</button>
         </div>
-    </nav>
+        <ul class="flex flex-wrap justify-center space-x-2 sm:space-x-4">
+            <li><a href="#top" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 text-sm sm:text-base">Main</a></li>
+            <li><a href="#work" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 text-sm sm:text-base">Teaching</a></li>
+            <li><a href="#portfolio" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 text-sm sm:text-base">Research</a></li>
+            <li><a href="#contact" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 text-sm sm:text-base">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <main class="container mx-auto px-4 py-8">
-        <section id="top" class="mb-16">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="images/passport_photo_umkc.jpg" alt="Kabeer Bora" class="rounded-full w-64 h-64 object-cover mx-auto">
+<main class="container mx-auto px-4 py-8 transition-colors">
+    <section id="top" class="mb-16">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-8 md:mb-0">
+                <img src="images/passport_photo_umkc.jpg" alt="Kabeer Bora" class="rounded-full w-64 h-64 object-cover mx-auto">
+            </div>
+            <div class="md:w-2/3 md:pl-8">
+                <h1 class="text-4xl font-bold mb-4">Kabeer Bora</h1>
+                <p class="mb-4">I am an Assistant Professor in Economics at the University of Missouri-Kansas City. I specialize in using empirical tools to understand classical political economy and teach Econometrics, Economic History, Sports Economics and Radical Political Economy.</p>
+                <div class="space-x-4">
+                    <a href="images/CV.pdf" target="_blank" class="bg-blue-500 dark:bg-blue-700 text-white dark:text-gray-200 px-4 py-2 rounded hover:bg-blue-600 dark:hover:bg-blue-600">CV</a>
+                    <a href="mailto:kabeerbora@umkc.edu" class="bg-blue-500 dark:bg-blue-700 text-white dark:text-gray-200 px-4 py-2 rounded hover:bg-blue-600 dark:hover:bg-blue-600">Email Me</a>
+                    <a href="https://shss.umkc.edu/profiles/economics/bora-kabeer.html" target="_blank" class="bg-blue-500 dark:bg-blue-700 text-white dark:text-gray-200 px-4 py-2 rounded hover:bg-blue-600 dark:hover:bg-blue-600">Department Webpage</a>
                 </div>
-                <div class="md:w-2/3 md:pl-8">
-                    <h1 class="text-4xl font-bold mb-4">Kabeer Bora</h1>
-                    <p class="mb-4">I am an Assistant Professor in Economics at the University of Missouri-Kansas City. I specialize in using empirical tools to understand classical political economy and teach Econometrics, Economic History, Sports Economics and Radical Political Economy.</p>
-                    <div class="space-x-4">
-                        <a href="images/CV.pdf" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">CV</a>
-                        <a href="mailto:kabeerbora@umkc.edu" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Email Me</a>
-                        <a href="https://shss.umkc.edu/profiles/economics/bora-kabeer.html" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Department Webpage</a>
-                    </div>
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="work" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Teaching Portfolio</h2>
-            <div id="teaching-carousel" class="w-full max-w-4xl mx-auto"></div>
-        </section>
+    <section id="work" class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Teaching Portfolio</h2>
+        <div id="teaching-carousel" class="w-full max-w-4xl mx-auto"></div>
+    </section>
 
-        <section id="portfolio" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Research Portfolio</h2>
-            <div id="research-carousel" class="w-full max-w-4xl mx-auto"></div>
-        </section>
+    <section id="portfolio" class="mb-16">
+        <h2 class="text-3xl font-bold mb-8 text-center">Research Portfolio</h2>
+        <div id="research-carousel" class="w-full max-w-4xl mx-auto"></div>
+    </section>
 
-        <section id="contact" class="bg-white p-8 rounded-lg shadow-md text-center">
-            <h2 class="text-3xl font-bold mb-4">Contact</h2>
-            <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Get in touch</h3>
-                <p>
-                    203 E, Manheim Hall<br>
-                    710 E 52nd St<br>
-                    Kansas City, MO 64110<br>
-                    United States<br>
-                    Phone: 816-235-1136<br>
-                    Email: <a href="mailto:kabeerbora@umkc.edu" class="text-blue-600 hover:text-blue-800">kabeerbora@umkc.edu</a>
-                </p>
-            </div>
-            <div class="flex justify-center space-x-4">
-                <a href="https://twitter.com/kabeer_bora?lang=en" target="_blank" class="text-gray-600 hover:text-blue-500">
-                    <span class="sr-only">X (formerly Twitter)</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 300 300.251" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M178.57 127.15 290.27 0h-26.46l-97.03 110.38L89.34 0H0l117.13 166.93L0 300.25h26.46l102.4-116.59 81.8 116.59h89.34M36.01 19.54H76.66l187.13 262.13h-40.66"/>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/kabeer-bora-6016a5b9/" target="_blank" class="text-gray-600 hover:text-blue-700">
-                    <span class="sr-only">LinkedIn</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                </a>
-                <a href="https://github.com/kabeerbora" target="_blank" class="text-gray-600 hover:text-gray-900">
-                    <span class="sr-only">GitHub</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </div>
-        </section>
-    </main>
+    <section id="contact" class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md text-center transition-colors">
+        <h2 class="text-3xl font-bold mb-4">Contact</h2>
+        <div class="mb-4">
+            <h3 class="text-xl font-semibold mb-2">Get in touch</h3>
+            <p>
+                203 E, Manheim Hall<br>
+                710 E 52nd St<br>
+                Kansas City, MO 64110<br>
+                United States<br>
+                Phone: 816-235-1136<br>
+                Email: <a href="mailto:kabeerbora@umkc.edu" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200">kabeerbora@umkc.edu</a>
+            </p>
+        </div>
+        <div class="flex justify-center space-x-4">
+            <!-- Social icons remain the same -->
+            <a href="https://twitter.com/kabeer_bora?lang=en" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-500">
+                <span class="sr-only">X (formerly Twitter)</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 300 300.251" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M178.57 127.15 290.27 0h-26.46l-97.03 110.38L89.34 0H0l117.13 166.93L0 300.25h26.46l102.4-116.59 81.8 116.59h89.34M36.01 19.54H76.66l187.13 262.13h-40.66"/>
+                </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/kabeer-bora-6016a5b9/" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-blue-700">
+                <span class="sr-only">LinkedIn</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+            </a>
+            <a href="https://github.com/kabeerbora" target="_blank" class="text-gray-600 dark:text-gray-300 hover:text-gray-900">
+                <span class="sr-only">GitHub</span>
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+    </section>
+</main>
 
-    <footer class="bg-gray-800 text-white text-center p-4">
-        <p>&copy; Kabeer Bora. All Rights Reserved.</p>
-    </footer>
+<footer class="bg-gray-800 dark:bg-gray-900 text-white text-center p-4">
+    <p>&copy; Kabeer Bora. All Rights Reserved.</p>
+</footer>
 
-    <script>
-        const researchSlides = [
-            {
-                title: "The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit",
-                content: "India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development.",
-                link: "images/Drain_Gain_WMR_abstract.pdf",
-                externalUrl: "https://worldmarxistreview.org/index.php/wmr/article/view/81"
-            },
-            {
-                title: "Importing Sobrie 'Tea': Understanding the Tea Trade during the Industrial Revolution",
-                content: "Economic historian Robert Allen observed that during the Industrial Revolution, the British working class experienced a period of stagnant real wages. This has led many historians to investigate changes in the diet of the working class during that period. While there has been a focus on the entire food basket, this paper primarily concentrates on the consumption of tea, which was entirely imported. This study explores why the demand for tea increased during the Industrial Revolution by examining the effect of working hours on tea imports between 1760 and 1834. It also aims to identify the determinants of tea demand while underlining the crucial role that increasing working hours played during this period. The Industrial Revolution was characterized by long working hours and a per capita decline in the consumption of so-called luxury items, such as tea, due to their use as stimulants.",
-                link: "images/Importing_Sobrietea_Abstract.pdf",
-                externalUrl: "https://www.arfjournals.com/image/catalog/Journals%20Papers/AJEB/2023/No%202%20(2023)/5_Kabeer%20Bora.pdf"
-            },
-            {
-                title: "An Unequal Equalization: An Investigation into Why the First Age of Globalization Took Place Through Understanding the Rates of Profit",
-                content: "A basic question emerges in the context of today's highly interconnected world: What were the catalysts for this phenomenon's beginnings and what kept it going? In order to answer this question, I will look at the profitability dynamics from 1870 to 1913, a critical time that is frequently heralded as the beginning of globalization. Some academics argue that Marx was among the first to foresee the inevitable rise of globalization, citing profit as a strong argument in favor of nations opening up. This study, which may be groundbreaking in its field, aims to determine how globalization affects profitability at this critical period of global history. In addition, I investigate whether capital mobility in this period of time saw a convergence of profitability levels across countries, which is a necessary condition for the existence of unequal exchanges between countries. Even if a lot of research focuses on current profitability trends, it is crucial to examine a time when the great European nations were industrializing. This paper shows that globalization did have an impact on profitability. This paper poses the question of whether the rate of accumulation is responsive to the rate of profits. While this relationship has been tested several times, it is essential to inquire whether such a law would still hold during historical times.",
-                link: "images/Equalization_of_profits_abstract.pdf"
-            },
-        ];
+<script>
+    const researchSlides = [
+        {
+            title: "The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit",
+            content: "India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development.",
+            link: "images/Drain_Gain_WMR_abstract.pdf",
+            externalUrl: "https://worldmarxistreview.org/index.php/wmr/article/view/81"
+        },
+        {
+            title: "Importing Sobrie 'Tea': Understanding the Tea Trade during the Industrial Revolution",
+            content: "Economic historian Robert Allen observed that during the Industrial Revolution, the British working class experienced a period of stagnant real wages. This has led many historians to investigate changes in the diet of the working class during that period. While there has been a focus on the entire food basket, this paper primarily concentrates on the consumption of tea, which was entirely imported. This study explores why the demand for tea increased during the Industrial Revolution by examining the effect of working hours on tea imports between 1760 and 1834. It also aims to identify the determinants of tea demand while underlining the crucial role that increasing working hours played during this period. The Industrial Revolution was characterized by long working hours and a per capita decline in the consumption of so-called luxury items, such as tea, due to their use as stimulants.",
+            link: "images/Importing_Sobrietea_Abstract.pdf",
+            externalUrl: "https://www.arfjournals.com/image/catalog/Journals%20Papers/AJEB/2023/No%202%20(2023)/5_Kabeer%20Bora.pdf"
+        },
+        {
+            title: "An Unequal Equalization: An Investigation into Why the First Age of Globalization Took Place Through Understanding the Rates of Profit",
+            content: "A basic question emerges in the context of today's highly interconnected world: What were the catalysts for this phenomenon's beginnings and what kept it going? In order to answer this question, I will look at the profitability dynamics from 1870 to 1913, a critical time that is frequently heralded as the beginning of globalization. Some academics argue that Marx was among the first to foresee the inevitable rise of globalization, citing profit as a strong argument in favor of nations opening up. This study, which may be groundbreaking in its field, aims to determine how globalization affects profitability at this critical period of global history. In addition, I investigate whether capital mobility in this period of time saw a convergence of profitability levels across countries, which is a necessary condition for the existence of unequal exchanges between countries. Even if a lot of research focuses on current profitability trends, it is crucial to examine a time when the great European nations were industrializing. This paper shows that globalization did have an impact on profitability. This paper poses the question of whether the rate of accumulation is responsive to the rate of profits. While this relationship has been tested several times, it is essential to inquire whether such a law would still hold during historical times.",
+            link: "images/Equalization_of_profits_abstract.pdf"
+        },
+    ];
 
-        const teachingSlides = [
-            {
-                title: "Radical Political Economy",
-                content: "Throughout this course, we will explore fundamental concepts and engage in discussions within the realms of philosophy, sociology, political science, and economics as they relate to Karl Marx's writings. The primary focus, however, will be on critically analyzing Marxist and classical economics. When needed, we will offer historical context and dive into the history of economic thought to enhance the understanding of Marx's works. Towards the end, we can also see the application of Marxian Economics to the world of international trade.",
-                link: "images/Syllabus_rad_pol_econ.pdf"
-            },
-            {
-                title: "American Labor History",
-                content: "This course first examines the economic growth of the United States and the technological progress made by the country, along with the interplay between this growth and the evolution of the labor market. It explores the history of work and the working class in the U.S. from 1750 to the present. We will focus on the transformation of the workplace, the rise of the union movement, slavery, and the nature of cultural and political organizations. Additionally, we will examine workers’ relationships with other social groups and the role played by gender, race, and ethnicity in uniting or dividing the working class. We will also analyze key historical events, such as the Civil War and the Great Depression, and their widespread effects on the labor market. In this course, we will use economic models and statistical tools to better understand U.S. history, and we will apply this historical knowledge to gain insight into current debates about issues like immigration policy, economic inequality, taxation, and government spending.",
-                link: "images/American_History_Syllabus.pdf"
-            },
-            {
-                title: "Principles of Macroeconomics",
-                content: "Principles of Macroeconomics deals primarily with macroeconomic or national economic concepts, the economics of the determination of recession, inflation, maintenance of full employment and economic growth, with an emphasis upon the economics of modern Keynesian analyses. It further introduces the economics of Marx and Ayres and discusses relevant and current economic issues. ECON 201 and ECON 202 are prerequisites for most other economics courses.",
-                link: "images/Syllabus_Econ_201.pdf"
-            },
-        ];
+    const teachingSlides = [
+        {
+            title: "Radical Political Economy",
+            content: "Throughout this course, we will explore fundamental concepts and engage in discussions within the realms of philosophy, sociology, political science, and economics as they relate to Karl Marx's writings. The primary focus, however, will be on critically analyzing Marxist and classical economics. When needed, we will offer historical context and dive into the history of economic thought to enhance the understanding of Marx's works. Towards the end, we can also see the application of Marxian Economics to the world of international trade.",
+            link: "images/Syllabus_rad_pol_econ.pdf"
+        },
+        {
+            title: "American Labor History",
+            content: "This course first examines the economic growth of the United States and the technological progress made by the country, along with the interplay between this growth and the evolution of the labor market. It explores the history of work and the working class in the U.S. from 1750 to the present. We will focus on the transformation of the workplace, the rise of the union movement, slavery, and the nature of cultural and political organizations. Additionally, we will examine workers’ relationships with other social groups and the role played by gender, race, and ethnicity in uniting or dividing the working class. We will also analyze key historical events, such as the Civil War and the Great Depression, and their widespread effects on the labor market. In this course, we will use economic models and statistical tools to better understand U.S. history, and we will apply this historical knowledge to gain insight into current debates about issues like immigration policy, economic inequality, taxation, and government spending.",
+            link: "images/American_History_Syllabus.pdf"
+        },
+        {
+            title: "Principles of Macroeconomics",
+            content: "Principles of Macroeconomics deals primarily with macroeconomic or national economic concepts, the economics of the determination of recession, inflation, maintenance of full employment and economic growth, with an emphasis upon the economics of modern Keynesian analyses. It further introduces the economics of Marx and Ayres and discusses relevant and current economic issues. ECON 201 and ECON 202 are prerequisites for most other economics courses.",
+            link: "images/Syllabus_Econ_201.pdf"
+        },
+    ];
 
-        function createCarousel(containerId, slides, buttonText) {
-            const container = document.getElementById(containerId);
-            let currentSlide = 0;
+    function createCarousel(containerId, slides, buttonText) {
+        const container = document.getElementById(containerId);
+        let currentSlide = 0;
 
-            function renderSlide() {
-                const slide = slides[currentSlide];
-                const titleHtml = slide.externalUrl 
-                    ? `<a href="${slide.externalUrl}" target="_blank" class="text-blue-600 hover:text-blue-800 underline">${slide.title}</a>`
-                    : slide.title;
-                
-                container.innerHTML = `
-                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                        <div class="p-6 carousel-content">
-                            <div class="flex items-center justify-between mb-4">
-                                <button class="text-gray-600 hover:text-gray-800">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-                                <h3 class="text-xl font-semibold text-center flex-grow px-4">${titleHtml}</h3>
-                                <button class="text-gray-600 hover:text-gray-800">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <p class="text-gray-600 mb-4">${slide.content}</p>
-                            ${slide.link ? `<a href="${slide.link}" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">${buttonText}</a>` : ''}
+        function renderSlide() {
+            const slide = slides[currentSlide];
+            const titleHtml = slide.externalUrl 
+                ? `<a href="${slide.externalUrl}" target="_blank" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-200 underline">${slide.title}</a>`
+                : slide.title;
+            
+            container.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden transition-colors">
+                    <div class="p-6 carousel-content">
+                        <div class="flex items-center justify-between mb-4">
+                            <button class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                </svg>
+                            </button>
+                            <h3 class="text-xl font-semibold text-center flex-grow px-4">${titleHtml}</h3>
+                            <button class="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
                         </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">${slide.content}</p>
+                        ${slide.link ? `<a href="${slide.link}" target="_blank" class="inline-block bg-blue-500 dark:bg-blue-700 text-white dark:text-gray-200 px-4 py-2 rounded hover:bg-blue-600 dark:hover:bg-blue-600 transition-colors">${buttonText}</a>` : ''}
                     </div>
-                `;
+                </div>
+            `;
 
-                container.querySelector('button:first-child').addEventListener('click', () => {
-                    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    renderSlide();
-                });
+            container.querySelector('button:first-child').addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                renderSlide();
+            });
 
-                container.querySelector('button:last-child').addEventListener('click', () => {
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    renderSlide();
-                });
-            }
-
-            renderSlide();
+            container.querySelector('button:last-child').addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                renderSlide();
+            });
         }
 
-        createCarousel('research-carousel', researchSlides, 'View Abstract');
-        createCarousel('teaching-carousel', teachingSlides, 'View Syllabus');
+        renderSlide();
+    }
 
-        // Add scroll event listener for sticky header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('.sticky-header');
-            if (window.scrollY > 0) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
+    createCarousel('research-carousel', researchSlides, 'View Abstract');
+    createCarousel('teaching-carousel', teachingSlides, 'View Syllabus');
+
+    // Sticky header
+    window.addEventListener('scroll', () => {
+        const header = document.querySelector('.sticky-header');
+        if (window.scrollY > 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Dark mode toggle
+    const toggleButton = document.getElementById('dark-mode-toggle');
+
+    // Load saved preference
+    if(localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+    }
+
+    toggleButton.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        if(document.documentElement.classList.contains('dark')){
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+</script>
+
 </body>
 </html>
