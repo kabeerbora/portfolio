@@ -205,9 +205,7 @@
 
             function renderSlide() {
                 const slide = slides[currentSlide];
-                const titleHtml = slide.externalUrl 
-                    ? `<a href="${slide.externalUrl}" target="_blank" class="text-blue-600 hover:text-blue-800 underline">${slide.title}</a>`
-                    : slide.title;
+                const buttonLink = slide.externalUrl || slide.link || '#'; // Use externalUrl if available, fallback to link or '#'
                 
                 container.innerHTML = `
                     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -218,7 +216,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                                     </svg>
                                 </button>
-                                <h3 class="text-xl font-semibold text-center flex-grow px-4">${titleHtml}</h3>
+                                <h3 class="text-xl font-semibold text-center flex-grow px-4">${slide.title}</h3>
                                 <button class="text-gray-600 hover:text-gray-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -226,7 +224,7 @@
                                 </button>
                             </div>
                             <p class="text-gray-600 mb-4">${slide.content}</p>
-                            ${slide.link ? `<a href="${slide.link}" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">${buttonText}</a>` : ''}
+                            ${buttonLink !== '#' ? `<a href="${buttonLink}" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">${buttonText}</a>` : ''}
                         </div>
                     </div>
                 `;
@@ -245,7 +243,7 @@
             renderSlide();
         }
 
-        createCarousel('research-carousel', researchSlides, 'View Abstract');
+        createCarousel('research-carousel', researchSlides, 'View Paper');
         createCarousel('teaching-carousel', teachingSlides, 'View Syllabus');
 
         // Add scroll event listener for sticky header
