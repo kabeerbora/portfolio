@@ -3,35 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kabeer Bora</title>
+    <title>Kabeer Bora — Economics, UMKC</title>
+    <meta name="description" content="Kabeer Bora is an Assistant Professor of Economics at the University of Missouri–Kansas City. Research on classical political economy, economic history, unequal exchange, and Indian manufacturing.">
+    <meta name="author" content="Kabeer Bora">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['selector', '[data-theme="dark"]'],
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Crimson Pro"', 'Georgia', 'serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         :root {
-            --bg-color: #f3f4f6; /* Light mode background */
-            --text-color: #1f2937; /* Light mode text */
-            --card-bg: #ffffff; /* Light mode card background */
-            --header-bg: rgba(255, 255, 255, 0.9); /* Light mode header */
-            --footer-bg: #1f2937; /* Light mode footer */
-            --footer-text: #ffffff; /* Footer text */
+            --bg: #faf8f4;
+            --surface: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #525c6b;
+            --border: #e5e2dc;
+            --accent: #7a1f2b;
+            --accent-hover: #5a1720;
+            --header-bg: rgba(250, 248, 244, 0.92);
+            --footer-bg: #1a1a1a;
+            --footer-text: #e5e2dc;
         }
 
         [data-theme="dark"] {
-            --bg-color: #1f2937; /* Dark mode background */
-            --text-color: #e5e7eb; /* Dark mode text */
-            --card-bg: #374151; /* Dark mode card background */
-            --header-bg: rgba(31, 41, 55, 0.9); /* Dark mode header */
-            --footer-bg: #111827; /* Dark mode footer */
-            --footer-text: #e5e7eb; /* Dark mode footer text */
+            --bg: #14181f;
+            --surface: #1e232c;
+            --text: #e8e6e1;
+            --text-muted: #9aa3b2;
+            --border: #2d333e;
+            --accent: #d4a574;
+            --accent-hover: #e8b885;
+            --header-bg: rgba(20, 24, 31, 0.92);
+            --footer-bg: #0a0d12;
+            --footer-text: #9aa3b2;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', system-ui, sans-serif;
+            font-feature-settings: "ss01", "cv11";
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .bg-white {
-            background-color: var(--card-bg);
+        h1, h2, h3, .font-serif {
+            font-family: 'Crimson Pro', Georgia, serif;
+            letter-spacing: -0.01em;
         }
 
         .sticky-header {
@@ -39,247 +70,492 @@
             top: 0;
             z-index: 1000;
             background-color: var(--header-bg);
-            backdrop-filter: blur(5px);
-            transition: box-shadow 0.3s ease, background-color 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        .sticky-header.scrolled { border-bottom-color: var(--border); }
+
+        .nav-link {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            position: relative;
+            padding: 0.25rem 0;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover { color: var(--accent); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.25s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .brand-mark {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: 0.01em;
+            color: var(--text);
+            text-decoration: none;
         }
 
-        .sticky-header.scrolled {
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .section-heading {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.4rem;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 3rem;
+            height: 2px;
+            background: var(--accent);
         }
 
-        .carousel-content {
-            min-height: 300px;
+        .surface {
+            background-color: var(--surface);
+            border: 1px solid var(--border);
         }
 
-        footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
+        .muted { color: var(--text-muted); }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.55rem 1.1rem;
+            border-radius: 2px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease;
         }
+        .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.55rem 1.1rem;
+            border-radius: 2px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        .paper-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+        }
+        .paper-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+
+        .paper-title {
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            line-height: 1.25;
+            color: var(--text);
+        }
+
+        .paper-abstract {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 0.97rem;
+        }
+
+        .carousel-nav {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .carousel-nav:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .carousel-indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            padding: 0;
+        }
+        .carousel-indicator.active {
+            width: 20px;
+            border-radius: 3px;
+            background: var(--accent);
+        }
+
+        .text-link {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        .text-link:hover { border-bottom-color: var(--accent); }
+
+        .eyebrow {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .profile-img {
+            border: 3px solid var(--surface);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .social-icon {
+            color: var(--text-muted);
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .social-icon:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+        footer { background-color: var(--footer-bg); color: var(--footer-text); }
+
+        /* Prevent Tailwind default gray backgrounds from leaking on load */
+        .bg-surface { background-color: var(--surface) !important; }
     </style>
 </head>
 <body class="min-h-screen">
     <nav class="sticky-header">
-        <div class="container mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between">
-            <div class="mb-4 sm:mb-0">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/university-of-missouri-kansas-city-umkc5116-FyVYjPT4UgUYTplCaJD9YZCS6HTwCV.jpg" alt="UMKC Logo" class="h-8 sm:h-12 w-auto">
-            </div>
-            <div class="flex items-center space-x-2 sm:space-x-4">
-                <ul class="flex flex-wrap justify-center space-x-2 sm:space-x-4">
-                    <li><a href="#top" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Main</a></li>
-                    <li><a href="#work" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Teaching</a></li>
-                    <li><a href="#portfolio" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Research</a></li>
-                    <li><a href="#contact" class="text-blue-600 hover:text-blue-800 text-sm sm:text-base">Contact</a></li>
+        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#top" class="brand-mark">Kabeer Bora</a>
+            <div class="flex items-center gap-6 sm:gap-8">
+                <ul class="hidden sm:flex items-center gap-7">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#research" class="nav-link">Research</a></li>
+                    <li><a href="#teaching" class="nav-link">Teaching</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-600">
-                    <svg id="sun-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 2a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 2zM10 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 0110 15zM10 7a3 3 0 100 6 3 3 0 000-6zM15.657 5.404a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 1.06l-1.06 1.06zM6.343 14.596a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 1.06l-1.06 1.06zM15.657 14.596a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 011.06-1.06l1.06 1.06zM6.343 5.404a.75.75 0 011.06-1.06l1.06 1.06a.75.75 0 01-1.06 1.06l-1.06-1.06zM12.75 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 01.75.75zM17.25 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 01.75.75zM4.75 10a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5a.75.75 0 01.75.75z"/>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg id="sun-icon" class="h-4 w-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
-                    <svg id="moon-icon" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+                    <svg id="moon-icon" class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
                     </svg>
                 </button>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-4 py-8">
-        <section id="top" class="mb-16">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="images/passport_photo_umkc.jpg" alt="Kabeer Bora" class="rounded-full w-64 h-64 object-cover mx-auto">
+    <main class="max-w-5xl mx-auto px-6">
+        <!-- About / Hero -->
+        <section id="top" class="pt-16 pb-20 sm:pt-24 sm:pb-28">
+            <div id="about" class="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-14">
+                <div class="flex-shrink-0">
+                    <img src="images/passport_photo_umkc.jpg" alt="Kabeer Bora" class="profile-img rounded-full w-48 h-48 md:w-56 md:h-56 object-cover">
                 </div>
-                <div class="md:w-2/3 md:pl-8">
-                    <h1 class="text-4xl font-bold mb-4">Kabeer Bora</h1>
-                    <p class="mb-4">I am an Assistant Professor in Economics at the University of Missouri-Kansas City. I specialize in using empirical tools to understand classical political economy and teach Econometrics, Economic History, Sports Economics and Radical Political Economy.</p>
-                    <div class="space-x-4">
-                        <a href="images/CV.pdf" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">CV</a>
-                        <a href="mailto:kabeerbora@umkc.edu" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Email Me</a>
-                        <a href="https://shss.umkc.edu/profiles/economics/bora-kabeer.html" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Department Webpage</a>
+                <div class="flex-1 text-center md:text-left">
+                    <p class="eyebrow mb-3">Assistant Professor of Economics</p>
+                    <h1 class="text-5xl md:text-6xl font-semibold mb-3 leading-tight">Kabeer Bora</h1>
+                    <p class="muted text-base mb-5">University of Missouri–Kansas City</p>
+                    <p class="text-lg leading-relaxed mb-7 max-w-2xl" style="font-family:'Crimson Pro', Georgia, serif;">
+                        I use empirical tools to study questions in classical political economy. I teach Econometrics, Economic History, Sports Economics, and Radical Political Economy.
+                    </p>
+                    <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+                        <a href="images/CV.pdf" target="_blank" rel="noopener" class="btn-primary">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            Curriculum Vitae
+                        </a>
+                        <a href="mailto:kabeerbora@umkc.edu" class="btn-outline">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            Email
+                        </a>
+                        <a href="https://shss.umkc.edu/profiles/bora-kabeer.html" target="_blank" rel="noopener" class="btn-outline">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                            Department Page
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="work" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Teaching Portfolio</h2>
-            <div id="teaching-carousel" class="w-full max-w-4xl mx-auto"></div>
-        </section>
+        <hr style="border-color: var(--border);" class="border-t">
 
-        <section id="portfolio" class="mb-16">
-            <h2 class="text-3xl font-bold mb-8 text-center">Research Portfolio</h2>
-            <div id="research-carousel" class="w-full max-w-4xl mx-auto"></div>
-        </section>
-
-        <section id="contact" class="bg-white p-8 rounded-lg shadow-md text-center">
-            <h2 class="text-3xl font-bold mb-4">Contact</h2>
-            <div class="mb-4">
-                <h3 class="text-xl font-semibold mb-2">Get in touch</h3>
-                <p>
-                    203 E, Manheim Hall<br>
-                    710 E 52nd St<br>
-                    Kansas City, MO 64110<br>
-                    United States<br>
-                    Phone: 816-235-1136<br>
-                    Email: <a href="mailto:kabeerbora@umkc.edu" class="text-blue-600 hover:text-blue-800">kabeerbora@umkc.edu</a>
-                </p>
+        <!-- Research -->
+        <section id="research" class="py-20">
+            <div class="text-center mb-14">
+                <p class="eyebrow mb-3">Working Papers &amp; Publications</p>
+                <h2 class="section-heading text-4xl md:text-5xl font-semibold">Research</h2>
             </div>
-            <div class="flex justify-center space-x-4">
-                <a href="https://twitter.com/kabeer_bora?lang=en" target="_blank" class="text-gray-600 hover:text-blue-500">
-                    <span class="sr-only">X (formerly Twitter)</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 300 300.251" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M178.57 127.15 290.27 0h-26.46l-97.03 110.38L89.34 0H0l117.13 166.93L0 300.25h26.46l102.4-116.59 81.8 116.59h89.34M36.01 19.54H76.66l187.13 262.13h-40.66"/>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/kabeer-bora-6016a5b9/" target="_blank" class="text-gray-600 hover:text-blue-700">
-                    <span class="sr-only">LinkedIn</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
-                </a>
-                <a href="https://github.com/kabeerbora" target="_blank" class="text-gray-600 hover:text-gray-900">
-                    <span class="sr-only">GitHub</span>
-                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
-                    </svg>
-                </a>
+            <div id="research-carousel" class="max-w-3xl mx-auto"></div>
+        </section>
+
+        <hr style="border-color: var(--border);" class="border-t">
+
+        <!-- Teaching -->
+        <section id="teaching" class="py-20">
+            <div class="text-center mb-14">
+                <p class="eyebrow mb-3">Courses &amp; Syllabi</p>
+                <h2 class="section-heading text-4xl md:text-5xl font-semibold">Teaching</h2>
+            </div>
+            <div id="teaching-carousel" class="max-w-3xl mx-auto"></div>
+        </section>
+
+        <hr style="border-color: var(--border);" class="border-t">
+
+        <!-- Contact -->
+        <section id="contact" class="py-20">
+            <div class="text-center mb-10">
+                <p class="eyebrow mb-3">Get in Touch</p>
+                <h2 class="section-heading text-4xl md:text-5xl font-semibold">Contact</h2>
+            </div>
+            <div class="paper-card max-w-2xl mx-auto p-8 sm:p-10 text-center">
+                <address class="not-italic" style="font-family:'Crimson Pro', Georgia, serif; font-size: 1.05rem; line-height: 1.75;">
+                    Department of Economics<br>
+                    203 E, Manheim Hall · 710 E 52nd Street<br>
+                    Kansas City, MO 64110, United States<br>
+                    <span class="muted text-sm" style="font-family: Inter, sans-serif;">Phone: 816-235-1136</span><br>
+                    <a href="mailto:kabeerbora@umkc.edu" class="text-link">kabeerbora@umkc.edu</a>
+                </address>
+                <div class="flex justify-center gap-6 mt-8 pt-8" style="border-top: 1px solid var(--border);">
+                    <a href="https://twitter.com/kabeer_bora?lang=en" target="_blank" rel="noopener" class="social-icon" aria-label="X (Twitter)">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 300 300.251" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M178.57 127.15 290.27 0h-26.46l-97.03 110.38L89.34 0H0l117.13 166.93L0 300.25h26.46l102.4-116.59 81.8 116.59h89.34M36.01 19.54H76.66l187.13 262.13h-40.66"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kabeer-bora-6016a5b9/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://github.com/kabeerbora" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=&q=Kabeer+Bora" target="_blank" rel="noopener" class="social-icon" aria-label="Google Scholar">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white text-center p-4">
-        <p>&copy; Kabeer Bora. All Rights Reserved.</p>
+    <footer class="mt-12 py-8 text-center text-sm">
+        <div class="max-w-5xl mx-auto px-6">
+            <p style="font-family:'Crimson Pro', Georgia, serif;">&copy; <span id="year"></span> Kabeer Bora · All Rights Reserved</p>
+        </div>
     </footer>
 
     <script>
         const researchSlides = [
             {
-                title: "The Drain Gain: An investigation into how colonial drain counteracted the fall in the rate of profit",
-                content: "India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development.",
+                title: "Unequal Exchange and Capital Accumulation",
+                venue: "Working Paper",
+                content: "This paper provides a causal estimate of the effect of unequal exchange on sectoral capital accumulation. We implement Ricci's (2019) per-hour-transfer framework on the World Input&ndash;Output Database with Penn World Tables price-level data, detrending for Balassa&ndash;Samuelson effects to isolate cyclical variation. Identification uses a Bartik instrument that interacts year-2000 bilateral sectoral trade shares with partner-country natural disaster damages normalised by partner GDP. In the preferred specification&mdash;productive sectors only, with productive-sector MEV and sector-level trade-volume controls&mdash;a one-dollar-per-hour increase in the per-hour transfer raises the sectoral accumulation rate by 0.77 percentage points (t = 3.49, first-stage F = 47.24). Typical cyclical movements of $1&ndash;$2 per hour imply accumulation effects of 1.0&ndash;1.6 percentage points. An unproductive-sector placebo is insignificant.",
+                link: "images/Unequal_Exchange_abstract.pdf",
+                buttonText: "View Abstract"
+            },
+            {
+                title: "Amending Amenables: Institutional Drivers of Marx-Biased Technical Change",
+                venue: "Working Paper",
+                content: "This paper examines whether India's 1982 amendment to the Industrial Disputes Act induced Marx-biased technical change in organized manufacturing. Lowering the retrenchment-approval threshold from 300 to 100 workers increased expected labor adjustment costs. Using Annual Survey of Industries data (1979&ndash;1984) and a dynamic difference-in-discontinuities design around the 100-worker cutoff, I find higher capital intensity and lower capital productivity in 1983, with no differential rise in labor productivity. Effects are concentrated in private firms, while public firms show no significant response&mdash;consistent with institutionally induced defensive capital deepening.",
+                link: "images/Amending_Amenables_abstract.pdf",
+                buttonText: "View Abstract"
+            },
+            {
+                title: "An Unequal Equalization: Understanding the Response of Rates of Profit during the First Age of Globalization (1870&ndash;1913)",
+                venue: "Working Paper",
+                content: "This article examines how trade integration influenced the rate of profit in seven capitalist economies during the First Age of Globalization (1870&ndash;1913). Using net productive capital stock and two independent instrumental variable strategies&mdash;climate uncertainty shocks in trading partners and the steamship revolution (Pascali 2017)&mdash;we estimate that a 1% increase in trade openness raised the net rate of profit by 0.30&ndash;0.33 percentage points. This effect operates primarily through exports, consistent with a surplus-realization mechanism, while the import channel is statistically insignificant. We also document &beta;-convergence in profit rates (half-life of 25&ndash;36 years), consistent with the Marxian tendency toward equalization, though unconditional dispersion (&sigma;-convergence) follows a non-monotone path.",
+                link: "images/Equalization_of_profits_abstract.pdf",
+                buttonText: "View Abstract"
+            },
+            {
+                title: "The Drain Gain: Colonial Drain and the Counteracting of the Falling Rate of Profit",
+                venue: "World Marxist Review, 2024",
+                content: "India's colonial history has received substantial scholarly attention, and the drain of wealth has particularly attracted considerable focus. However, the emphasis has often remained on the drain of wealth as a cause of India's underdevelopment. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain's economic development, particularly in counteracting the tendency of the falling rate of profit.",
                 link: "images/Drain_Gain_WMR_abstract.pdf",
-                externalUrl: "https://worldmarxistreview.org/index.php/wmr/article/view/81"
+                externalUrl: "https://worldmarxistreview.org/index.php/wmr/article/view/81",
+                buttonText: "View Publication"
             },
             {
-                title: "Importing Sobrie 'Tea': Understanding the Tea Trade during the Industrial Revolution",
-                content: "Economic historian Robert Allen observed that during the Industrial Revolution, the British working class experienced a period of stagnant real wages. This has led many historians to investigate changes in the diet of the working class during that period. While there has been a focus on the entire food basket, this paper primarily concentrates on the consumption of tea, which was entirely imported. This study explores why the demand for tea increased during the Industrial Revolution by examining the effect of working hours on tea imports between 1760 and 1834. It also aims to identify the determinants of tea demand while underlining the crucial role that increasing working hours played during this period. The Industrial Revolution was characterized by long working hours and a per capita decline in the consumption of so-called luxury items, such as tea, due to their use as stimulants.",
+                title: "Importing Sobrie'Tea': Understanding the Tea Trade during the Industrial Revolution",
+                venue: "Arthaniti: Journal of Economic Theory and Practice, 2023",
+                content: "Economic historian Robert Allen observed that during the Industrial Revolution, the British working class experienced a period of stagnant real wages. This paper concentrates on the consumption of tea&mdash;entirely imported&mdash;and explores why demand for it increased during the Industrial Revolution by examining the effect of working hours on tea imports between 1760 and 1834. It identifies the determinants of tea demand while underlining the crucial role that increasing working hours played during this period.",
                 link: "images/Importing_Sobrietea_Abstract.pdf",
-                externalUrl: "https://www.arfjournals.com/image/catalog/Journals%20Papers/AJEB/2023/No%202%20(2023)/5_Kabeer%20Bora.pdf"
-            },
-            {
-                title: "An Unequal Equalization: An Investigation into Why the First Age of Globalization Took Place Through Understanding the Rates of Profit",
-                content: "A basic question emerges in the context of today's highly interconnected world: What were the catalysts for this phenomenon's beginnings and what kept it going? In order to answer this question, I will look at the profitability dynamics from 1870 to 1913, a critical time that is frequently heralded as the beginning of globalization. Some academics argue that Marx was among the first to foresee the inevitable rise of globalization, citing profit as a strong argument in favor of nations opening up. This study, which may be groundbreaking in its field, aims to determine how globalization affects profitability at this critical period of global history. In addition, I investigate whether capital mobility in this period of time saw a convergence of profitability levels across countries, which is a necessary condition for the existence of unequal exchanges between countries. Even if a lot of research focuses on current profitability trends, it is crucial to examine a time when the great European nations were industrializing. This paper shows that globalization did have an impact on profitability. This paper poses the question of whether the rate of accumulation is responsive to the rate of profits. While this relationship has been tested several times, it is essential to inquire whether such a law would still hold during historical times.",
-                link: "images/Equalization_of_profits_abstract.pdf"
-            },
-            {
-                title: "Delicensing Exploitation: A look at the organized manufacturing sector in the 1980s",
-                content: "This paper examines India's delicensing policy during the License Raj through a Marxian lens, employing difference-in-differences estimation with panel data constructed from firm-level identifiers. The analysis reveals a statistically significant negative average treatment effect on the rate of profit in delicensed sectors, with corresponding negative impacts on capital accumulation. The study also reassesses the classification of Indian states into pro-worker and pro-employer categories, finding that pro-worker states better withstood the effects of delicensing. By linking real-world industrial policy to Marxian economic frameworks, this research provides novel insights into the interaction between policy interventions, profitability, and capital dynamics during India's economic liberalization period",
-                link: "images/delicensing_exploitation_abstract.pdf"
+                externalUrl: "https://www.arfjournals.com/image/catalog/Journals%20Papers/AJEB/2023/No%202%20(2023)/5_Kabeer%20Bora.pdf",
+                buttonText: "View Publication"
             }
         ];
 
         const teachingSlides = [
             {
                 title: "Radical Political Economy",
-                content: "Throughout this course, we will explore fundamental concepts and engage in discussions within the realms of philosophy, sociology, political science, and economics as they relate to Karl Marx's writings. The primary focus, however, will be on critically analyzing Marxist and classical economics. When needed, we will offer historical context and dive into the history of economic thought to enhance the understanding of Marx's works. Towards the end, we can also see the application of Marxian Economics to the world of international trade.",
-                link: "images/Syllabus_rad_pol_econ.pdf"
+                venue: "Upper-Division Undergraduate",
+                content: "Fundamental concepts and contemporary discussions at the intersection of philosophy, sociology, political science, and economics as they relate to Karl Marx's writings. The primary focus is on critically analyzing Marxist and classical economics, with historical context and the history of economic thought drawn in where relevant. The course concludes with applications of Marxian economics to international trade.",
+                link: "images/Syllabus_rad_pol_econ.pdf",
+                buttonText: "View Syllabus"
             },
             {
                 title: "American Labor History",
-                content: "This course first examines the economic growth of the United States and the technological progress made by the country, along with the interplay between this growth and the evolution of the labor market. It explores the history of work and the working class in the U.S. from 1750 to the present. We will focus on the transformation of the workplace, the rise of the union movement, slavery, and the nature of cultural and political organizations. Additionally, we will examine workers’ relationships with other social groups and the role played by gender, race, and ethnicity in uniting or dividing the working class. We will also analyze key historical events, such as the Civil War and the Great Depression, and their widespread effects on the labor market. In this course, we will use economic models and statistical tools to better understand U.S. history, and we will apply this historical knowledge to gain insight into current debates about issues like immigration policy, economic inequality, taxation, and government spending.",
-                link: "images/American_History_Syllabus.pdf"
+                venue: "Undergraduate",
+                content: "An examination of U.S. economic growth and the evolution of the labor market from 1750 to the present: the transformation of the workplace, the rise of the union movement, slavery, and the role of cultural and political organizations. Workers' relationships with other social groups and the role of gender, race, and ethnicity in uniting or dividing the working class are central. Economic models and statistical tools are brought to bear on historical episodes and contemporary policy debates.",
+                link: "images/American_History_Syllabus.pdf",
+                buttonText: "View Syllabus"
             },
             {
                 title: "Principles of Macroeconomics",
-                content: "Principles of Macroeconomics deals primarily with macroeconomic or national economic concepts, the economics of the determination of recession, inflation, maintenance of full employment and economic growth, with an emphasis upon the economics of modern Keynesian analyses. It further introduces the economics of Marx and Ayres and discusses relevant and current economic issues. ECON 201 and ECON 202 are prerequisites for most other economics courses.",
-                link: "images/Syllabus_Econ_201.pdf"
+                venue: "Undergraduate",
+                content: "A principles-level treatment of recession, inflation, full employment, and economic growth, emphasizing modern Keynesian analysis while introducing the economics of Marx and Ayres. The course also discusses relevant contemporary economic issues and serves as a prerequisite for most other courses in economics.",
+                link: "images/Syllabus_Econ_201.pdf",
+                buttonText: "View Syllabus"
             },
             {
                 title: "Colloquium in Econometrics",
-                content: "This course will be an introduction to causal inference methods used in today’s academia. The first few lectures will be a recap of what was done in Econ 5525, where we will revisit concepts like Hypothesis testing, Linear Regression, Panel Data etc. After which, we will visit Causality with various different methods like Difference in Differences, Regression Discontinuity Design, Matching among others.",
-                link: "images/Econ_5625_Syllabus.pdf"            },
+                venue: "Graduate",
+                content: "An introduction to causal inference methods in contemporary empirical economics. After a brief recap of hypothesis testing, linear regression, and panel data (from Econ 5525), the course covers difference-in-differences, regression discontinuity, matching, and related methods with applied examples.",
+                link: "images/Econ_5625_Syllabus.pdf",
+                buttonText: "View Syllabus"
+            },
             {
                 title: "Sports Economics",
-                content: "This course examines the economic aspects of sports, including labor markets in professional sports, team ownership and competitive balance, the role of media and broadcasting, public financing of stadiums, and the broader economic impact of sports on local and national economies. Students will apply economic theory and empirical methods to analyze current issues and policy debates in the sports industry.",
-                link: "images/sports_econ_syllabus.pdf"            }
+                venue: "Undergraduate",
+                content: "Economic aspects of sports: labor markets in professional leagues, team ownership and competitive balance, the role of media and broadcasting, public financing of stadiums, and the broader economic impact of sports on local and national economies. Students apply economic theory and empirical methods to contemporary issues and policy debates.",
+                link: "images/sports_econ_syllabus.pdf",
+                buttonText: "View Syllabus"
+            }
         ];
 
-        function createCarousel(containerId, slides, buttonText) {
+        function createCarousel(containerId, slides) {
             const container = document.getElementById(containerId);
             let currentSlide = 0;
 
-            function renderSlide() {
+            function render() {
                 const slide = slides[currentSlide];
-                const buttonLink = slide.externalUrl || slide.link || '#'; // Use externalUrl if available, fallback to link or '#'
-                
+                const href = slide.externalUrl || slide.link || '';
+                const btnText = slide.buttonText || 'View';
+
+                const indicators = slides.map((_, i) =>
+                    `<button class="carousel-indicator ${i === currentSlide ? 'active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`
+                ).join('');
+
                 container.innerHTML = `
-                    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
-                        <div class="p-6 carousel-content">
-                            <div class="flex items-center justify-between mb-4">
-                                <button class="text-gray-600 hover:text-gray-800">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                                    </svg>
-                                </button>
-                                <h3 class="text-xl font-semibold text-center flex-grow px-4">${slide.title}</h3>
-                                <button class="text-gray-600 hover:text-gray-800">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <p class="text-gray-600 mb-4">${slide.content}</p>
-                            ${buttonLink !== '#' ? `<a href="${buttonLink}" target="_blank" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">${buttonText}</a>` : ''}
-                        </div>
+                    <article class="paper-card p-8 sm:p-10">
+                        ${slide.venue ? `<p class="eyebrow mb-3">${slide.venue}</p>` : ''}
+                        <h3 class="paper-title mb-5">${slide.title}</h3>
+                        <p class="paper-abstract mb-7">${slide.content}</p>
+                        ${href ? `<a href="${href}" target="_blank" rel="noopener" class="btn-primary">
+                            ${btnText}
+                            <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </a>` : ''}
+                    </article>
+                    <div class="flex items-center justify-between mt-6">
+                        <button class="carousel-nav" data-dir="prev" aria-label="Previous">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+                        <div class="flex items-center gap-2">${indicators}</div>
+                        <button class="carousel-nav" data-dir="next" aria-label="Next">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                        </button>
                     </div>
                 `;
 
-                container.querySelector('button:first-child').addEventListener('click', () => {
+                container.querySelector('[data-dir="prev"]').addEventListener('click', () => {
                     currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                    renderSlide();
+                    render();
                 });
-
-                container.querySelector('button:last-child').addEventListener('click', () => {
+                container.querySelector('[data-dir="next"]').addEventListener('click', () => {
                     currentSlide = (currentSlide + 1) % slides.length;
-                    renderSlide();
+                    render();
+                });
+                container.querySelectorAll('.carousel-indicator').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        currentSlide = parseInt(e.currentTarget.dataset.index, 10);
+                        render();
+                    });
                 });
             }
 
-            renderSlide();
+            render();
         }
 
-        createCarousel('research-carousel', researchSlides, 'View Paper');
-        createCarousel('teaching-carousel', teachingSlides, 'View Syllabus');
+        createCarousel('research-carousel', researchSlides);
+        createCarousel('teaching-carousel', teachingSlides);
 
-        // Add scroll event listener for sticky header
+        // Sticky header shadow
         window.addEventListener('scroll', () => {
             const header = document.querySelector('.sticky-header');
-            if (window.scrollY > 0) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            header.classList.toggle('scrolled', window.scrollY > 4);
         });
 
-        // Dark mode toggle
+        // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const sunIcon = document.getElementById('sun-icon');
         const moonIcon = document.getElementById('moon-icon');
 
+        function applyTheme(theme) {
+            document.documentElement.dataset.theme = theme;
+            if (theme === 'dark') {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            } else {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
         themeToggle.addEventListener('click', () => {
-            document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-            sunIcon.classList.toggle('hidden');
-            moonIcon.classList.toggle('hidden');
-            localStorage.setItem('theme', document.documentElement.dataset.theme);
+            const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            localStorage.setItem('theme', next);
         });
 
-        // Load saved theme
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.dataset.theme = 'dark';
-            sunIcon.classList.remove('hidden');
-            moonIcon.classList.add('hidden');
-        } else {
-            sunIcon.classList.add('hidden');
-            moonIcon.classList.remove('hidden');
-        }
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
