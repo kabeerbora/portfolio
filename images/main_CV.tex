@@ -1,0 +1,235 @@
+\documentclass[letterpaper,11pt]{article}
+
+% Enhanced packages
+\usepackage{fontawesome5}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, linkcolor=NavyBlue, urlcolor=NavyBlue, citecolor=NavyBlue, anchorcolor=NavyBlue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{microtype}
+
+% Enhanced font selection - using a more elegant combination
+\usepackage[T1]{fontenc}
+\usepackage{charter} % Beautiful serif font for headings
+\usepackage[scaled=0.92]{helvet} % Clean sans-serif for body text
+\renewcommand{\familydefault}{\sfdefault}
+
+% Refined margins
+\geometry{
+    left=0.7in,
+    right=0.7in,
+    top=0.6in,
+    bottom=0.6in
+}
+
+% Sophisticated color palette
+\definecolor{primarycolor}{RGB}{25, 42, 86}      % Deep navy blue
+\definecolor{accentcolor}{RGB}{67, 97, 151}      % Medium blue
+\definecolor{lightaccent}{RGB}{230, 235, 245}    % Very light blue
+\definecolor{textgray}{RGB}{64, 64, 64}          % Warm gray
+\definecolor{lightgray}{RGB}{128, 128, 128}      % Light gray
+
+% Enhanced section formatting
+\titleformat{\section}{
+  \vspace{8pt}\color{primarycolor}\large\bfseries\scshape\raggedright
+}{}{0em}{}[\vspace{2pt}{\color{accentcolor}\titlerule}\vspace{-6pt}]
+
+% Custom commands with enhanced styling
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    \color{textgray}{#1} \vspace{-1pt}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\color{primarycolor}#1} & \textbf{\small\color{accentcolor}#2} \\
+      \textit{\small\color{textgray}#3} & \textit{\small\color{lightgray}#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+% Enhanced contact info with better spacing
+\newcommand{\email}{\textcolor{accentcolor}{\faEnvelope}\ \href{mailto:kabeerbora@umkc.edu}{\color{textgray}kabeerbora@umkc.edu}}
+\newcommand{\github}{\textcolor{accentcolor}{\faGithub}\ \href{https://github.com/kabeerbora}{\color{textgray}kabeerbora}}
+\newcommand{\twitter}{\textcolor{accentcolor}{\faTwitter}\ \href{https://twitter.com/kabeer_bora}{\color{textgray}@kabeer\_bora}}
+\newcommand{\website}{\textcolor{accentcolor}{\faGlobe}\ \href{https://kabeerbora.com/}{\color{textgray}kabeerbora.com}}
+
+\begin{document}
+
+% Enhanced header with better typography
+\begin{center}
+    {\Huge\color{primarycolor}\textbf{Kabeer Bora}} \\[8pt]
+    {\large\color{accentcolor}\textit{Assistant Professor of Economics}} \\[12pt]
+    \small
+    \github \quad \email \quad \twitter \quad \website
+    \vspace{-5pt}
+\end{center}
+
+% Employment
+\section{Employment}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of Missouri - Kansas City}{Aug 2024 -- Present}
+    {Assistant Professor of Economics}{Kansas City, MO}
+\resumeSubHeadingListEnd
+
+% Education
+\section{Education}
+\resumeSubHeadingListStart
+  \resumeSubheading
+    {University of Utah}{Aug 2019 -- Aug 2024}
+    {PhD in Economics}{Salt Lake City, UT}
+  \resumeSubheading
+    {Universitat de Barcelona}{Sep 2017 -- Jun 2019}
+    {Master's in Economics}{Barcelona, Spain}
+  \resumeSubheading
+    {University of Auckland}{Jul 2014 -- Nov 2016}
+    {Bachelor's in Economics}{Auckland, New Zealand}
+  \resumeSubheading
+    {Gujarat National Law University}{June 2010 -- May 2013}
+    {Bcom. LLB (Incomplete)}{Gandhinagar, GJ}
+\resumeSubHeadingListEnd
+
+% Research & Publications
+\section{Research \& Publications}
+
+\vspace{4pt}
+\textbf{\color{primarycolor}Peer-Reviewed Publications}
+\begin{itemize}[leftmargin=0.15in, label={\textcolor{accentcolor}{\textbullet}}, itemsep=0pt]
+  \item \small{\textbf{\color{textgray}The Drain Gain: An investigation into how colonial drain helped keep British economy buoyant.} \textit{\color{lightgray}World Marxist Review, 2(1):93–120, 2025.}}
+  \item \small{\textbf{\color{textgray}Importing Sobri'tea' - Understanding the tea trade during the Industrial Revolution.} \textit{\color{lightgray}Asian Journal of Economics \& Business, Vol 4(2), 2023.}}
+\end{itemize}
+
+\vspace{4pt}
+\textbf{\color{primarycolor}Under Review}
+\begin{itemize}[leftmargin=0.15in, label={\textcolor{accentcolor}{\textbullet}}, itemsep=0pt]
+  \item \small{\textbf{\color{textgray}An Unequal Equalization: An Investigation into Why the First Age of Globalization Took Place.} \textit{\color{lightgray}Revise \& Resubmit at Review of Social Economy.}}
+  \item \small{\textbf{\color{textgray}Book Review: From Value to Uneven Development.} \textit{\color{lightgray}Under review at Review of Radical Political Economics.}}
+  \item \small{\textbf{\color{textgray}Amending Amenables: Institutional Drivers of Marx Biased Technical Change.}}
+\end{itemize}
+
+\vspace{4pt}
+\textbf{\color{primarycolor}Working Papers \& Work in Progress}
+\begin{itemize}[leftmargin=0.15in, label={\textcolor{accentcolor}{\textbullet}}, itemsep=0pt]
+  \item \small{\textbf{\color{textgray}Unequal Exchange and Capital Accumulation.}}
+  \item \small{\textbf{\color{textgray}Class Inequality and Liberalization: Evidence from India.}}
+\end{itemize}
+
+\newpage
+\section{Teaching Experience}
+\vspace{3pt}
+\begin{minipage}[t]{0.48\textwidth}
+  \begin{itemize}[leftmargin=0.15in, label={\textcolor{accentcolor}{\textbullet}}]
+    \item \textbf{\color{primarycolor}American Labor History} \\ 
+          \textit{\color{textgray}Econ 404RR}
+    \item \textbf{\color{primarycolor}Radical Political Economy} \\ 
+          \textit{\color{textgray}Econ 488}
+    \item \textbf{\color{primarycolor}Marxian Economics} \\ 
+          \textit{\color{textgray}Econ 5080/6080}
+    \item \textbf{\color{primarycolor}Sports Economics} \\ 
+          \textit{\color{textgray}Econ 3700}
+    \item \textbf{\color{primarycolor}Industrialization \& Economic Development} \\ 
+          \textit{\color{textgray}Econ 6470}
+  \end{itemize}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \begin{itemize}[leftmargin=0.15in, label={\textcolor{accentcolor}{\textbullet}}]
+    \item \textbf{\color{primarycolor}Mathematics for Economists} \\ 
+          \textit{\color{textgray}ECON 3640}
+    \item \textbf{\color{primarycolor}Colloquium In Econometrics} \\ 
+          \textit{\color{textgray}ECON 5625}
+    \item \textbf{\color{primarycolor}International Economics} \\ 
+          \textit{\color{textgray}ECON 3500}
+    \item \textbf{\color{primarycolor}Introduction to Microeconomics} \\ 
+          \textit{\color{textgray}ECON 2010}
+    \item \textbf{\color{primarycolor}Introduction to Macroeconomics} \\ 
+          \textit{\color{textgray}ECON 2020}
+  \end{itemize}
+\end{minipage}
+
+% Conference Presentations
+\section{Conference Presentations \& Workshops}
+\vspace{3pt}
+\begin{itemize}[leftmargin=0.15in, label={\textcolor{accentcolor}{\textbullet}}, itemsep=0pt]
+  \item \small{\textbf{\color{textgray}John Jay and New School Conference}, \textit{\color{lightgray}New York, NY} \hfill \textcolor{accentcolor}{Feb 2026}}
+  \item \small{\textbf{\color{textgray}Annual Conference of the World Social Science Association (WSSA)}, \textit{\color{lightgray}Albuquerque, NM} \hfill \textcolor{accentcolor}{Mar 2026}}
+  \item \small{\textbf{\color{textgray}Annual Conference of ICAPE}, \textit{\color{lightgray}ICAPE} \hfill \textcolor{accentcolor}{Jan 2026}}
+  \item \small{\textbf{\color{textgray}Annual Conference of ICAPE}, \textit{\color{lightgray}ICAPE} \hfill \textcolor{accentcolor}{Jan 2025}}
+  \item \small{\textbf{\color{textgray}Eastern Economics Association (EEA) Conference}, \textit{\color{lightgray}URPE} \hfill \textcolor{accentcolor}{Mar 2024}}
+  \item \small{\textbf{\color{textgray}Allied Social Sciences Association (ASSA)}, \textit{\color{lightgray}URPE} \hfill \textcolor{accentcolor}{Jan 2024}}
+  \item \small{\textbf{\color{textgray}Annual Conference of ICAPE}, \textit{\color{lightgray}ICAPE} \hfill \textcolor{accentcolor}{Jan 2024}}
+  \item \small{\textbf{\color{textgray}AFEE Workshop for Early Scholars}, \textit{\color{lightgray}AFEE} \hfill \textcolor{accentcolor}{Aug 2023}}
+  \item \small{\textbf{\color{textgray}Annual Conference of the Association for Heterodox Economics}, \textit{\color{lightgray}AHE} \hfill \textcolor{accentcolor}{Jul 2023}}
+  \item \small{\textbf{\color{textgray}Annual Conference of the World Social Science Association (WSSA)}, \textit{\color{lightgray}ASE} \hfill \textcolor{accentcolor}{Apr 2023}}
+  \item \small{\textbf{\color{textgray}Eastern Economic Conference (EEA)}, \textit{\color{lightgray}URPE} \hfill \textcolor{accentcolor}{Feb 2023}}
+\end{itemize}
+
+% Technical Skills
+\section{Technical Skills}
+\vspace{3pt}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \item \textbf{\color{primarycolor}Languages:} \color{textgray}Assamese, Hindi, English, Basic Bengali, Urdu, Gujarati \\[3pt]
+  \item \textbf{\color{primarycolor}Software:} \color{textgray}R, \LaTeX, STATA, Python, R Markdown \\
+\end{itemize}
+
+% Awards & Honors
+\section{Awards \& Honors}
+\vspace{3pt}
+\begin{itemize}[leftmargin=0.15in, label={}]
+\item \textbf{\color{primarycolor}Francis M. Bernardin Research Development Grant} \hfill \textcolor{accentcolor}{Spring 2026} \\
+        \textit{\color{textgray}School of Humanities \& Social Sciences, University of Missouri--Kansas City} \\[2pt]
+  \item \textbf{\color{primarycolor}UMKC Entrepreneurship Innovation Grant} \hfill \textcolor{accentcolor}{Spring 2026} \\
+        \textit{\color{textgray}UMKC Innovates / Ewing Marion Kauffman Foundation} \\[2pt]
+  \item \textbf{\color{primarycolor}International Travel Award} \hfill \textcolor{accentcolor}{2026} \\
+        \textit{\color{textgray}School of Humanities \& Social Sciences, UMKC} \\[2pt]
+  \item \textbf{\color{primarycolor}Dissertation Fellowship Award} \hfill \textcolor{accentcolor}{2023} \\
+        \textit{\color{textgray}Union for Radical Political Economics} \\[2pt]
+  \item \textbf{\color{primarycolor}Rasmussen Jewel Research Grant} \hfill \textcolor{accentcolor}{2023} \\
+        \textit{\color{textgray}University of Utah} \\[2pt]
+  \item \textbf{\color{primarycolor}Graduate School Stipend} \hfill \textcolor{accentcolor}{2019 - 2023} \\
+        \textit{\color{textgray}University of Utah} \\
+\end{itemize}
+
+% References
+\section{References}
+\vspace{5pt}
+\begin{tabular}{@{}p{0.48\textwidth}p{0.48\textwidth}@{}}
+  % First Row
+  \textbf{\color{primarycolor}Minqi Li} \\
+  \textit{\color{textgray}Professor, Department of Economics} \\
+  \textit{\color{textgray}University of Utah} \\[3pt]
+  \textcolor{accentcolor}{\faEnvelope}\ \href{mailto:minqi.li@economics.utah.edu}{\color{textgray}minqi.li@economics.utah.edu} \\
+  \textcolor{accentcolor}{\faPhone}\ \color{textgray}+1 (801) 581 7481 \\
+
+  \\
+  \textbf{\color{primarycolor}Deepankar Basu} \\
+  \textit{\color{textgray}Professor, Department of Economics} \\
+  \textit{\color{textgray}University of Massachusetts, Amherst} \\[3pt]
+  \textcolor{accentcolor}{\faEnvelope}\ \href{mailto:dbasu@econs.umass.edu}{\color{textgray}dbasu@econs.umass.edu} \\
+  \textcolor{accentcolor}{\faPhone}\ \color{textgray}+1 (413) 545–6359 \\
+  \\ % End of first row
+
+  % Second Row
+  \textbf{\color{primarycolor}Ivan Mendieta Munoz} \\
+  \textit{\color{textgray}Associate Professor, Department of Economics} \\
+  \textit{\color{textgray}University of Utah} \\[3pt]
+  \textcolor{accentcolor}{\faEnvelope}\ \href{mailto:ivan.mendietamunoz@utah.edu}{\color{textgray}ivan.mendietamunoz@utah.edu} \\
+  \textcolor{accentcolor}{\faPhone}\ \color{textgray}+1 (801) 581 7481 \\
+  & \\ % Empty cell to maintain alignment
+\end{tabular}
+
+\end{document}
