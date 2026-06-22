@@ -33,8 +33,6 @@
             --accent: #7a1f2b;
             --accent-hover: #5a1720;
             --header-bg: rgba(250, 248, 244, 0.92);
-            --footer-bg: #1a1a1a;
-            --footer-text: #e5e2dc;
         }
 
         [data-theme="dark"] {
@@ -46,8 +44,6 @@
             --accent: #d4a574;
             --accent-hover: #e8b885;
             --header-bg: rgba(20, 24, 31, 0.92);
-            --footer-bg: #0a0d12;
-            --footer-text: #9aa3b2;
         }
 
         html { scroll-behavior: smooth; }
@@ -62,7 +58,7 @@
 
         h1, h2, h3, .font-serif {
             font-family: 'Crimson Pro', Georgia, serif;
-            letter-spacing: -0.01em;
+            letter-spacing: 0;
         }
 
         .sticky-header {
@@ -162,6 +158,32 @@
         }
         .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
+        .topic-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .topic-pill {
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.42rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            background: color-mix(in srgb, var(--surface) 82%, transparent);
+        }
+
+        .section-intro {
+            max-width: 42rem;
+            margin: 0 auto;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-family: 'Crimson Pro', Georgia, serif;
+            font-size: 1.08rem;
+        }
+
         .paper-card {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -236,6 +258,7 @@
 
         .profile-img {
             border: 3px solid var(--surface);
+            border-radius: 10px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.08);
         }
 
@@ -263,7 +286,10 @@
         }
         .theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
-        footer { background-color: var(--footer-bg); color: var(--footer-text); }
+        footer {
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
 
         /* Prevent Tailwind default gray backgrounds from leaking on load */
         .bg-surface { background-color: var(--surface) !important; }
@@ -297,15 +323,23 @@
         <section id="top" class="pt-16 pb-20 sm:pt-24 sm:pb-28">
             <div id="about" class="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-14">
                 <div class="flex-shrink-0">
-                    <img src="images/passport_photo_umkc.jpg" alt="Kabeer Bora" class="profile-img rounded-full w-48 h-48 md:w-56 md:h-56 object-cover">
+                    <img src="images/passport_photo_umkc.jpg" alt="Kabeer Bora" class="profile-img w-48 h-56 md:w-56 md:h-64 object-cover">
                 </div>
                 <div class="flex-1 text-center md:text-left">
                     <p class="eyebrow mb-3">Assistant Professor of Economics</p>
                     <h1 class="text-5xl md:text-6xl font-semibold mb-3 leading-tight">Kabeer Bora</h1>
                     <p class="muted text-base mb-5">University of Missouri–Kansas City</p>
                     <p class="text-lg leading-relaxed mb-7 max-w-2xl" style="font-family:'Crimson Pro', Georgia, serif;">
-                        I use empirical tools to study questions in classical political economy. I teach Econometrics, Economic History, Sports Economics, and Radical Political Economy.
+                        I use empirical tools to study classical political economy, economic history, unequal exchange, and labor institutions, with particular attention to Indian manufacturing and long-run capitalist development.
                     </p>
+                    <div class="topic-list justify-center md:justify-start">
+                        <span class="topic-pill">Political Economy</span>
+                        <span class="topic-pill">Economic History</span>
+                        <span class="topic-pill">Unequal Exchange</span>
+                        <span class="topic-pill">Indian Manufacturing</span>
+                        <span class="topic-pill">Labor Institutions</span>
+                        <span class="topic-pill">Econometrics</span>
+                    </div>
                     <div class="flex flex-wrap gap-3 justify-center md:justify-start">
                         <a href="images/CV.pdf" target="_blank" rel="noopener" class="btn-primary">
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -328,9 +362,10 @@
 
         <!-- Research -->
         <section id="research" class="py-20">
-            <div class="text-center mb-14">
+            <div class="text-center mb-12">
                 <p class="eyebrow mb-3">Working Papers &amp; Publications</p>
                 <h2 class="section-heading text-4xl md:text-5xl font-semibold">Research</h2>
+                <p class="section-intro mt-7">Selected work on unequal exchange, technical change, colonial drain, and the institutional conditions of accumulation.</p>
             </div>
             <div id="research-carousel" class="max-w-3xl mx-auto"></div>
         </section>
@@ -339,9 +374,10 @@
 
         <!-- Teaching -->
         <section id="teaching" class="py-20">
-            <div class="text-center mb-14">
+            <div class="text-center mb-12">
                 <p class="eyebrow mb-3">Courses &amp; Syllabi</p>
                 <h2 class="section-heading text-4xl md:text-5xl font-semibold">Teaching</h2>
+                <p class="section-intro mt-7">Courses spanning political economy, economic history, causal inference, macroeconomics, and applied topics.</p>
             </div>
             <div id="teaching-carousel" class="max-w-3xl mx-auto"></div>
         </section>
@@ -413,7 +449,7 @@
             },
             {
                 title: "An Unequal Equalization: Understanding the Response of Rates of Profit during the First Age of Globalization (1870&ndash;1913)",
-                venue: "Revise &amp; Resubmit, <em>Review of Social Economy</em>",
+                venue: "Forthcoming, <em>Review of Social Economy</em>",
                 content: "This article examines how trade integration influenced the rate of profit in seven capitalist economies during the First Age of Globalization (1870&ndash;1913). Using net productive capital stock and two independent instrumental variable strategies&mdash;climate uncertainty shocks in trading partners and the steamship revolution (Pascali 2017)&mdash;we estimate that a 1% increase in trade openness raised the net rate of profit by 0.30&ndash;0.33 percentage points. This effect operates primarily through exports, consistent with a surplus-realization mechanism, while the import channel is statistically insignificant. We also document &beta;-convergence in profit rates (half-life of 25&ndash;36 years), consistent with the Marxian tendency toward equalization, though unconditional dispersion (&sigma;-convergence) follows a non-monotone path.",
                 link: "images/Equalization_of_profits_abstract.pdf",
                 buttonText: "View Abstract"
