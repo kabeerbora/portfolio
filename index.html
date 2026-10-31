@@ -1,10 +1,10 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kabeer Bora</title>
-<meta name="description" content="Kabeer Bora is an Assistant Professor of Economics at the University of Missouri–Kansas City. Research on classical political economy, economic history, Indian economy, and labor institutions.">
+<meta name="description" content="Kabeer Bora is an Assistant Professor of Economics at the University of Missouriâ€“Kansas City. Research on classical political economy, economic history, Indian economy, and labor institutions.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
@@ -200,17 +200,24 @@ h1 {
 .links button[aria-expanded="true"] .caret { transform: rotate(180deg); }
 
 .abstract {
-    max-height: 0;
-    overflow: hidden;
+    display: grid;
+    grid-template-rows: 0fr;
     opacity: 0;
+    margin-top: 0;
+    transition: grid-template-rows 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+                margin-top 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease-out;
+}
+
+.abstract > div {
+    overflow: hidden;
+    min-height: 0;
     color: var(--muted);
     font: 16px/1.5 var(--serif);
-    margin-top: 0;
-    transition: max-height 0.35s ease-out, margin-top 0.35s ease-out, opacity 0.25s ease-out;
 }
 
 .abstract.show {
-    max-height: 1200px;
+    grid-template-rows: 1fr;
     margin-top: 15px;
     opacity: 1;
 }
@@ -277,18 +284,25 @@ h1 {
 
 .course-desc {
     grid-column: 1 / -1;
-    max-height: 0;
-    overflow: hidden;
+    display: grid;
+    grid-template-rows: 0fr;
     opacity: 0;
+    margin-top: 0;
+    transition: grid-template-rows 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+                margin-top 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease-out;
+}
+
+.course-desc > div {
+    overflow: hidden;
+    min-height: 0;
     color: var(--muted);
     font: 15px/1.55 var(--serif);
     max-width: 760px;
-    margin-top: 0;
-    transition: max-height 0.35s ease-out, margin-top 0.35s ease-out, opacity 0.25s ease-out;
 }
 
 .course-desc.show {
-    max-height: 400px;
+    grid-template-rows: 1fr;
     margin-top: 10px;
     opacity: 1;
 }
@@ -333,7 +347,7 @@ footer a {
 
 footer a:hover { color: var(--accent); }
 
-/* Theme toggle — sits prettily in the corner */
+/* Theme toggle â€” sits prettily in the corner */
 .theme-toggle {
     position: fixed;
     top: 1.25rem;
@@ -455,7 +469,7 @@ footer a:hover { color: var(--accent); }
                         <button class="abstract-btn" aria-expanded="false" aria-controls="abs-1">Abstract <span class="caret">&#9662;</span></button>
                         <a href="https://doi.org/10.1177/04866134261488884" target="_blank" rel="noopener">Paper &#x2197;</a>
                     </div>
-                    <p class="abstract" id="abs-1">This paper argues that Assam&rsquo;s structural underdevelopment is the endogenous product of a historically entrenched salariat&mdash;a class fraction whose material reproduction depends on state patronage, formed through the articulation of precolonial corv&eacute;e labor relations with British colonial administration. Modifying Bardhan&rsquo;s (1984) dominant-proprietary-class framework and drawing on Poulantzas (1975) and Wright (1985), the paper specifies the political and ideological forms of uncontested salariat hegemony and explains why threats to credential monopoly generate the ethnic, sons-of-soil mobilizations that have defined Assam&rsquo;s modern political history.</p>
+                    <div class="abstract" id="abs-1"><div>This paper argues that Assam&rsquo;s structural underdevelopment is the endogenous product of a historically entrenched salariat&mdash;a class fraction whose material reproduction depends on state patronage, formed through the articulation of precolonial corv&eacute;e labor relations with British colonial administration. Modifying Bardhan&rsquo;s (1984) dominant-proprietary-class framework and drawing on Poulantzas (1975) and Wright (1985), the paper specifies the political and ideological forms of uncontested salariat hegemony and explains why threats to credential monopoly generate the ethnic, sons-of-soil mobilizations that have defined Assam&rsquo;s modern political history.</div></div>
                 </div>
             </article>
 
@@ -471,7 +485,7 @@ footer a:hover { color: var(--accent); }
                         <button class="abstract-btn" aria-expanded="false" aria-controls="abs-2">Abstract <span class="caret">&#9662;</span></button>
                         <a href="https://doi.org/10.1080/00346764.2026.2694376" target="_blank" rel="noopener">Paper &#x2197;</a>
                     </div>
-                    <p class="abstract" id="abs-2">Using net productive capital stock and two independent instrumental variable strategies&mdash;climate uncertainty shocks in trading partners and the steamship revolution (Pascali 2017)&mdash;we estimate that a 1% increase in trade openness raised the net rate of profit by 0.30&ndash;0.33 percentage points in seven capitalist economies during 1870&ndash;1913. The effect operates primarily through exports, consistent with a surplus-realization mechanism. We also document &beta;-convergence in profit rates (half-life of 25&ndash;36 years), consistent with the Marxian tendency toward equalization, though &sigma;-convergence follows a non-monotone path.</p>
+                    <div class="abstract" id="abs-2"><div>Using net productive capital stock and two independent instrumental variable strategies&mdash;climate uncertainty shocks in trading partners and the steamship revolution (Pascali 2017)&mdash;we estimate that a 1% increase in trade openness raised the net rate of profit by 0.30&ndash;0.33 percentage points in seven capitalist economies during 1870&ndash;1913. The effect operates primarily through exports, consistent with a surplus-realization mechanism. We also document &beta;-convergence in profit rates (half-life of 25&ndash;36 years), consistent with the Marxian tendency toward equalization, though &sigma;-convergence follows a non-monotone path.</div></div>
                 </div>
             </article>
 
@@ -487,7 +501,7 @@ footer a:hover { color: var(--accent); }
                         <button class="abstract-btn" aria-expanded="false" aria-controls="abs-3">Abstract <span class="caret">&#9662;</span></button>
                         <a href="https://doi.org/10.62834/wd6xjf93" target="_blank" rel="noopener">Paper &#x2197;</a>
                     </div>
-                    <p class="abstract" id="abs-3">India&rsquo;s colonial history has received substantial scholarly attention, with the drain of wealth a particular focus. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain&rsquo;s own economic development, particularly in counteracting the tendency of the falling rate of profit.</p>
+                    <div class="abstract" id="abs-3"><div>India&rsquo;s colonial history has received substantial scholarly attention, with the drain of wealth a particular focus. This study shifts the lens to examine how this drain from India to Britain played a crucial role in Britain&rsquo;s own economic development, particularly in counteracting the tendency of the falling rate of profit.</div></div>
                 </div>
             </article>
 
@@ -503,7 +517,7 @@ footer a:hover { color: var(--accent); }
                         <button class="abstract-btn" aria-expanded="false" aria-controls="abs-4">Abstract <span class="caret">&#9662;</span></button>
                         <a href="https://www.arfjournals.com/image/catalog/Journals%20Papers/AJEB/2023/No%202%20(2023)/5_Kabeer%20Bora.pdf" target="_blank" rel="noopener">Paper &#x2197;</a>
                     </div>
-                    <p class="abstract" id="abs-4">This paper concentrates on the consumption of tea&mdash;entirely imported&mdash;and explores why demand for it increased during the Industrial Revolution by examining the effect of working hours on tea imports between 1760 and 1834. It identifies the determinants of tea demand while underlining the crucial role that increasing working hours played during this period.</p>
+                    <div class="abstract" id="abs-4"><div>This paper concentrates on the consumption of tea&mdash;entirely imported&mdash;and explores why demand for it increased during the Industrial Revolution by examining the effect of working hours on tea imports between 1760 and 1834. It identifies the determinants of tea demand while underlining the crucial role that increasing working hours played during this period.</div></div>
                 </div>
             </article>
         </div>
@@ -523,7 +537,7 @@ footer a:hover { color: var(--accent); }
                         <button class="abstract-btn" aria-expanded="false" aria-controls="abs-5">Abstract <span class="caret">&#9662;</span></button>
                         <a href="images/Amending_Amenables_abstract.pdf" target="_blank" rel="noopener">Draft &#x2197;</a>
                     </div>
-                    <p class="abstract" id="abs-5">India&rsquo;s 1982 amendment to the Industrial Disputes Act required firms with 100 or more workers to obtain permission for layoffs and closure, making labor quasi-fixed. Using Annual Survey of Industries data and a difference-in-discontinuities design at the 100-worker threshold, we find treated private firms raised capital intensity by 15% and cut capital productivity by 14% in 1983, with labor productivity unchanged through 1986. The real wage did not move; the cost of adjusting labor did. This is defensive capital deepening: capital-using restructuring without the labor-saving gain of canonical Marx-biased technical change.</p>
+                    <div class="abstract" id="abs-5"><div>India&rsquo;s 1982 amendment to the Industrial Disputes Act required firms with 100 or more workers to obtain permission for layoffs and closure, making labor quasi-fixed. Using Annual Survey of Industries data and a difference-in-discontinuities design at the 100-worker threshold, we find treated private firms raised capital intensity by 15% and cut capital productivity by 14% in 1983, with labor productivity unchanged through 1986. The real wage did not move; the cost of adjusting labor did. This is defensive capital deepening: capital-using restructuring without the labor-saving gain of canonical Marx-biased technical change.</div></div>
                 </div>
             </article>
         </div>
@@ -543,7 +557,7 @@ footer a:hover { color: var(--accent); }
                         <button class="abstract-btn" aria-expanded="false" aria-controls="abs-6">Abstract <span class="caret">&#9662;</span></button>
                         <a href="images/Trade_Exposure_abstract.pdf" target="_blank" rel="noopener">Draft &#x2197;</a>
                     </div>
-                    <p class="abstract" id="abs-6">Does trade integration transform how firms are socially organized? In India, seven out of ten establishments still hire no workers. Using the universe of firms in the Economic Census from 1998 to 2015 and a measure of each district&rsquo;s exposure to world demand, we find that the effect of trade liberalization on the share of these family-run, no-hired-labor firms is precisely null. Other work on formalization has found that the share of workers employed in formal firms increases due to trade liberalization; however, the evidence here suggests that the social organization of work is largely untouched by trade, both in manufacturing establishments and across non-farm employment.</p>
+                    <div class="abstract" id="abs-6"><div>Does trade integration transform how firms are socially organized? In India, seven out of ten establishments still hire no workers. Using the universe of firms in the Economic Census from 1998 to 2015 and a measure of each district&rsquo;s exposure to world demand, we find that the effect of trade liberalization on the share of these family-run, no-hired-labor firms is precisely null. Other work on formalization has found that the share of workers employed in formal firms increases due to trade liberalization; however, the evidence here suggests that the social organization of work is largely untouched by trade, both in manufacturing establishments and across non-farm employment.</div></div>
                 </div>
             </article>
         </div>
@@ -557,35 +571,35 @@ footer a:hover { color: var(--accent); }
                 <em>Econ 488</em>
                 <button class="about-btn" aria-expanded="false" aria-controls="course-1">About <span class="caret">&#9662;</span></button>
                 <a href="images/Syllabus_rad_pol_econ.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
-                <div class="course-desc" id="course-1">Marxist and classical economics in dialogue with philosophy, sociology, and political science, concluding with applications of Marxian economics to international trade.</div>
+                <div class="course-desc" id="course-1"><div>Marxist and classical economics in dialogue with philosophy, sociology, and political science, concluding with applications of Marxian economics to international trade.</div></div>
             </li>
             <li>
                 <span>American Labor History</span>
                 <em>Econ 404RR</em>
                 <button class="about-btn" aria-expanded="false" aria-controls="course-2">About <span class="caret">&#9662;</span></button>
                 <a href="images/American_History_Syllabus.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
-                <div class="course-desc" id="course-2">U.S. economic growth and the labor market from 1750 to the present: workplace transformation, the union movement, slavery, and the role of race, gender, and class.</div>
+                <div class="course-desc" id="course-2"><div>U.S. economic growth and the labor market from 1750 to the present: workplace transformation, the union movement, slavery, and the role of race, gender, and class.</div></div>
             </li>
             <li>
                 <span>Colloquium in Econometrics</span>
                 <em>Econ 5625</em>
                 <button class="about-btn" aria-expanded="false" aria-controls="course-3">About <span class="caret">&#9662;</span></button>
                 <a href="images/Econ_5625_Syllabus.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
-                <div class="course-desc" id="course-3">Causal inference for contemporary empirical economics: difference-in-differences, regression discontinuity, matching, and related methods with applied examples.</div>
+                <div class="course-desc" id="course-3"><div>Causal inference for contemporary empirical economics: difference-in-differences, regression discontinuity, matching, and related methods with applied examples.</div></div>
             </li>
             <li>
                 <span>Principles of Macroeconomics</span>
                 <em>Econ 201</em>
                 <button class="about-btn" aria-expanded="false" aria-controls="course-4">About <span class="caret">&#9662;</span></button>
                 <a href="images/Syllabus_Econ_201.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
-                <div class="course-desc" id="course-4">Recession, inflation, employment, and growth through a modern Keynesian lens, with context from Marx and Ayres on contemporary policy debates.</div>
+                <div class="course-desc" id="course-4"><div>Recession, inflation, employment, and growth through a modern Keynesian lens, with context from Marx and Ayres on contemporary policy debates.</div></div>
             </li>
             <li>
                 <span>Sports Economics</span>
                 <em>Econ 3700</em>
                 <button class="about-btn" aria-expanded="false" aria-controls="course-5">About <span class="caret">&#9662;</span></button>
                 <a href="images/sports_econ_syllabus.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
-                <div class="course-desc" id="course-5">Labor markets in professional leagues, competitive balance, stadium financing, and the broader economic impact of sports on local and national economies.</div>
+                <div class="course-desc" id="course-5"><div>Labor markets in professional leagues, competitive balance, stadium financing, and the broader economic impact of sports on local and national economies.</div></div>
             </li>
         </ul>
     </section>
@@ -640,7 +654,7 @@ footer a:hover { color: var(--accent); }
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Abstract and course-About toggles — click button, panel rolls down below
+    // Abstract and course-About toggles â€” click button, panel rolls down below
     document.querySelectorAll('.abstract-btn, .about-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('aria-controls');
