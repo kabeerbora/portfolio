@@ -223,8 +223,8 @@ h1 {
 
 .teaching li {
     display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 28px;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 24px;
     align-items: baseline;
     border-bottom: 1px solid var(--line);
     padding: 16px 0;
@@ -251,6 +251,47 @@ h1 {
 }
 
 .teaching a:hover { border-bottom-color: var(--accent); }
+
+.teaching .about-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: var(--accent);
+    font: 500 11px var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+}
+
+.teaching .about-btn:hover { border-bottom-color: var(--accent); }
+
+.teaching .about-btn .caret {
+    display: inline-block;
+    margin-left: 0.15rem;
+    transition: transform 0.25s ease;
+}
+
+.teaching .about-btn[aria-expanded="true"] .caret { transform: rotate(180deg); }
+
+.course-desc {
+    grid-column: 1 / -1;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    color: var(--muted);
+    font: 15px/1.55 var(--serif);
+    max-width: 760px;
+    margin-top: 0;
+    transition: max-height 0.35s ease-out, margin-top 0.35s ease-out, opacity 0.25s ease-out;
+}
+
+.course-desc.show {
+    max-height: 400px;
+    margin-top: 10px;
+    opacity: 1;
+}
 
 /* Contact */
 address {
@@ -347,9 +388,13 @@ footer a:hover { color: var(--accent); }
     .teaching li {
         grid-template-columns: 1fr auto;
         row-gap: 4px;
+        column-gap: 12px;
     }
-    .teaching em { grid-column: 1; }
-    .teaching a { grid-column: 2; grid-row: 1; }
+    .teaching > li > span:first-child { grid-column: 1; grid-row: 1; }
+    .teaching > li > a { grid-column: 2; grid-row: 1; }
+    .teaching > li > em { grid-column: 1; grid-row: 2; }
+    .teaching > li > .about-btn { grid-column: 2; grid-row: 2; }
+    .teaching > li > .course-desc { grid-column: 1 / -1; grid-row: 3; }
 
     address { font-size: 17px; }
 
@@ -510,27 +555,37 @@ footer a:hover { color: var(--accent); }
             <li>
                 <span>Radical Political Economy</span>
                 <em>Econ 488</em>
+                <button class="about-btn" aria-expanded="false" aria-controls="course-1">About <span class="caret">&#9662;</span></button>
                 <a href="images/Syllabus_rad_pol_econ.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
+                <div class="course-desc" id="course-1">Marxist and classical economics in dialogue with philosophy, sociology, and political science, concluding with applications of Marxian economics to international trade.</div>
             </li>
             <li>
                 <span>American Labor History</span>
                 <em>Econ 404RR</em>
+                <button class="about-btn" aria-expanded="false" aria-controls="course-2">About <span class="caret">&#9662;</span></button>
                 <a href="images/American_History_Syllabus.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
+                <div class="course-desc" id="course-2">U.S. economic growth and the labor market from 1750 to the present: workplace transformation, the union movement, slavery, and the role of race, gender, and class.</div>
             </li>
             <li>
                 <span>Colloquium in Econometrics</span>
                 <em>Econ 5625</em>
+                <button class="about-btn" aria-expanded="false" aria-controls="course-3">About <span class="caret">&#9662;</span></button>
                 <a href="images/Econ_5625_Syllabus.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
+                <div class="course-desc" id="course-3">Causal inference for contemporary empirical economics: difference-in-differences, regression discontinuity, matching, and related methods with applied examples.</div>
             </li>
             <li>
                 <span>Principles of Macroeconomics</span>
                 <em>Econ 201</em>
+                <button class="about-btn" aria-expanded="false" aria-controls="course-4">About <span class="caret">&#9662;</span></button>
                 <a href="images/Syllabus_Econ_201.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
+                <div class="course-desc" id="course-4">Recession, inflation, employment, and growth through a modern Keynesian lens, with context from Marx and Ayres on contemporary policy debates.</div>
             </li>
             <li>
                 <span>Sports Economics</span>
                 <em>Econ 3700</em>
+                <button class="about-btn" aria-expanded="false" aria-controls="course-5">About <span class="caret">&#9662;</span></button>
                 <a href="images/sports_econ_syllabus.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
+                <div class="course-desc" id="course-5">Labor markets in professional leagues, competitive balance, stadium financing, and the broader economic impact of sports on local and national economies.</div>
             </li>
         </ul>
     </section>
@@ -585,8 +640,8 @@ footer a:hover { color: var(--accent); }
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Abstract toggles — click button, abstract rolls down below
-    document.querySelectorAll('.abstract-btn').forEach(btn => {
+    // Abstract and course-About toggles — click button, panel rolls down below
+    document.querySelectorAll('.abstract-btn, .about-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const targetId = btn.getAttribute('aria-controls');
             const panel = document.getElementById(targetId);
