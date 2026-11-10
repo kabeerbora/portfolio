@@ -259,6 +259,14 @@ h1 {
 
 .teaching a:hover { border-bottom-color: var(--accent); }
 
+.teaching .upcoming {
+    color: var(--muted);
+    font: 500 11px var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+}
+
 .teaching .about-btn {
     background: none;
     border: 0;
@@ -405,7 +413,8 @@ footer a:hover { color: var(--accent); }
         column-gap: 12px;
     }
     .teaching > li > span:first-child { grid-column: 1; grid-row: 1; }
-    .teaching > li > a { grid-column: 2; grid-row: 1; }
+    .teaching > li > a,
+    .teaching > li > .upcoming { grid-column: 2; grid-row: 1; }
     .teaching > li > em { grid-column: 1; grid-row: 2; }
     .teaching > li > .about-btn { grid-column: 2; grid-row: 2; }
     .teaching > li > .course-desc { grid-column: 1 / -1; grid-row: 3; }
@@ -596,6 +605,13 @@ footer a:hover { color: var(--accent); }
                 <button class="about-btn" aria-expanded="false" aria-controls="course-5">About <span class="caret">&#9662;</span></button>
                 <a href="images/sports_econ_syllabus.pdf" target="_blank" rel="noopener">Syllabus &#x2197;</a>
                 <div class="course-desc" id="course-5"><div>Labor markets in professional leagues, competitive balance, stadium financing, and the broader economic impact of sports on local and national economies.</div></div>
+            </li>
+            <li>
+                <span>Mathematical Economics</span>
+                <em>Econ 421</em>
+                <button class="about-btn" aria-expanded="false" aria-controls="course-6">About <span class="caret">&#9662;</span></button>
+                <span class="upcoming">Spring 2027</span>
+                <div class="course-desc" id="course-6"><div>Mathematical tools for economic analysis: calculus, linear algebra, constrained optimization, and dynamic methods applied to consumer, firm, and equilibrium problems.</div></div>
             </li>
         </ul>
     </section>
